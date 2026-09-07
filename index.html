@@ -34,6 +34,9 @@
 <meta property="og:image" content="https://www.ggenius.kr/images/og.jpg">
 <meta name="theme-color" content="#1F5A22">
 <link rel="canonical" href="https://www.ggenius.kr">
+<link rel="alternate" hreflang="ko" href="https://www.ggenius.kr/">
+<link rel="alternate" hreflang="en" href="https://www.ggenius.kr/en.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ggenius.kr/">
 <link rel="icon" href="images/favicon.png">
 
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -78,6 +81,12 @@ img{max-width:100%;height:auto;display:block}
 .topnav{display:flex;gap:24px;font-size:14.5px;color:var(--soil-mid)}
 .topnav a{text-decoration:none}
 .topnav a:hover{color:var(--brand)}
+.topright{display:flex;align-items:center;gap:22px}
+.lang{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;letter-spacing:.02em}
+.lang a{text-decoration:none;color:var(--soil-mid)}
+.lang a.on{color:var(--brand)}
+.lang a:hover{color:var(--brand)}
+.lang span{color:var(--hair);font-weight:400}
 @media(max-width:860px){.topnav{display:none}}
 
 /* ── 버튼 ── */
@@ -217,14 +226,22 @@ img{max-width:100%;height:auto;display:block}
         이지멀칭
       </span>
     </a>
-    <nav class="topnav">
-      <a href="#product">이지멀칭</a>
-      <a href="#tech">기술·특허</a>
-      <a href="#certs">인증</a>
-      <a href="#company">회사</a>
-      <a href="#faq">자주 묻는 질문</a>
-      <a href="#contact">문의·구매</a>
-    </nav>
+    <div class="topright">
+      <nav class="topnav">
+        <a href="#product">이지멀칭</a>
+        <a href="#tech">기술·특허</a>
+        <a href="#certs">인증</a>
+        <a href="#company">회사</a>
+        <a href="#faq">자주 묻는 질문</a>
+        <a href="#contact">문의·구매</a>
+      </nav>
+      <!-- ══ 언어 전환 ══ 영문 페이지는 en.html 파일입니다 -->
+      <div class="lang">
+        <a class="on" href="index.html">KR</a>
+        <span>|</span>
+        <a href="en.html">EN</a>
+      </div>
+    </div>
   </div>
 </header>
 
