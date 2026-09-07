@@ -60,7 +60,7 @@
   --maxw:1080px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
+html{scroll-behavior:smooth;scroll-padding-top:82px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{
   font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,'Malgun Gothic',sans-serif;
@@ -74,10 +74,10 @@ img{max-width:100%;height:auto;display:block}
 
 /* ── 상단바 ── */
 .topbar{position:sticky;top:0;z-index:60;background:rgba(252,251,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--hair)}
-.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
 .brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:16.5px;letter-spacing:-.02em;text-decoration:none}
 .brand img{height:26px;width:auto}
-.brand-logo{height:30px;width:auto}
+.brand-logo{height:44px;width:auto}
 .brand-txt{display:flex;align-items:center;gap:8px;font-size:19px;font-weight:800;letter-spacing:-.03em;color:var(--brand)}
 .brand-txt[hidden]{display:none}
 .topnav{display:flex;gap:24px;font-size:14.5px;color:var(--soil-mid)}
@@ -121,7 +121,7 @@ img{max-width:100%;height:auto;display:block}
 /* ── 동영상 ── */
 .video-frame{margin-top:34px;position:relative;width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--hair);overflow:hidden}
 .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.video-frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
+.video-frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
 .video-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--film);color:var(--soil-mid);gap:8px;text-align:center;padding:24px}
 .video-empty strong{font-size:17px;color:var(--soil)}
 .video-empty span{font-size:14px}
@@ -312,7 +312,7 @@ img{max-width:100%;height:auto;display:block}
 <section class="band" id="video">
   <div class="wrap">
     <h2 class="sec-title">이지멀칭 사용 현장</h2>
-    <p class="sec-body">포설부터 수확 후 로터리 작업까지, 실제 사용 과정을 영상으로 확인하세요.</p>
+    <p class="sec-body">피복부터 수확 후 로터리 작업까지, 실제 사용 과정을 영상으로 확인하세요.</p>
     <div class="video-frame">
       <video class="site-video" src="intro.mp4" controls preload="metadata" playsinline></video>
     </div>
@@ -337,7 +337,7 @@ img{max-width:100%;height:auto;display:block}
     <h2 class="sec-title">이지멀칭</h2>
     <p class="sec-body">
       토양에서 분해되도록 설계한 농업용 멀칭필름입니다.
-      기존 멀칭비닐과 같은 방식으로 포설하되, 수확 후 걷어내 처리하는 과정을 줄이는 것이 목적입니다.
+      기존 멀칭비닐과 같은 방식으로 피복하되, 수확 후 걷어내 처리하는 과정을 줄이는 것이 목적입니다.
     </p>
 
     <div class="compare">
@@ -356,7 +356,7 @@ img{max-width:100%;height:auto;display:block}
           <li>수거 없이 로터리 작업으로 마무리</li>
           <li>토양에서 분해되도록 설계</li>
           <li>폐비닐 처리 부담을 줄임</li>
-          <li>포설 방식은 기존과 동일</li>
+          <li>피복 방식은 기존과 동일</li>
         </ul>
       </div>
     </div>
@@ -373,7 +373,7 @@ img{max-width:100%;height:auto;display:block}
       </figure>
       <figure>
         <img src="product-2.jpg" alt="이지멀칭 시공 현장">
-        <figcaption>포설 후 식재</figcaption>
+        <figcaption>피복 후 식재</figcaption>
       </figure>
       <figure>
         <img src="product-3.jpg" alt="이지멀칭 시공 현장">
@@ -416,7 +416,7 @@ img{max-width:100%;height:auto;display:block}
       <div class="cert"><div class="t">벤처기업 확인</div><div class="d">2025.07 취득</div></div>
       <div class="cert"><div class="t">그린바이오기업 인정</div><div class="d">2025.08 취득</div></div>
       <div class="cert"><div class="t">기업부설연구소 인정</div><div class="d">2025.09 취득</div></div>
-      <div class="cert"><div class="t">공장등록증명서</div><div class="d">2025.12 취득 · 경기도 파주</div></div>
+      <div class="cert"><div class="t">공장등록증명서</div><div class="d">2025.12 · 경기도 파주</div></div>
       <div class="cert"><div class="t">상표등록 제40-2192943호</div><div class="d">이지멀칭 · 제17류 · 2024.05 등록</div></div>
       <div class="cert"><div class="t">특허 제10-2951538호</div><div class="d">생분해 멀칭 시스템 · 2026.04 등록</div></div>
     </div>
@@ -428,8 +428,9 @@ img{max-width:100%;height:auto;display:block}
   <div class="wrap">
     <h2 class="sec-title">주식회사 그린지니어스</h2>
     <p class="sec-body">
-      2023년 설립된 친환경 농자재 기업입니다. 2024년 유로팜스 사업을 포괄 양수해 유통망을 확보했고,
-      2025년 자체 공장 등록으로 직접 생산 체계를 갖췄습니다.
+      정부 그린바이오기업 인정을 받은 소재 기업입니다.
+      기업부설연구소에서 생분해 바이오 소재를 연구하고, 이를 농업 현장에 적용한 제품을 개발합니다.
+      2025년 직접 생산 체계를 갖췄습니다.
     </p>
 
     <div class="timeline">
@@ -443,7 +444,6 @@ img{max-width:100%;height:auto;display:block}
           <li>이지멀칭 상표등록 (05.09)</li>
           <li>동성케미컬 MOU — 바이오플라스틱 공동개발 (04.15)</li>
           <li>(주)오더스 MOU — 생분해 농자재 공동개발 (05.28)</li>
-          <li>유로팜스 사업권 포괄 양수 (11.14)</li>
         </ul>
       </div>
       <div class="tl-row">
@@ -454,7 +454,7 @@ img{max-width:100%;height:auto;display:block}
           <li>그린바이오기업 인정 (08.06)</li>
           <li>기업부설연구소 인정 (09.03)</li>
           <li>파주지점 설치 (10.16)</li>
-          <li>공장등록증명서 취득 (12.17)</li>
+          <li>직접 생산 체계 구축 (12.17)</li>
           <li>중소벤처기업부 공동협업형 주관기업 선정 (12.20)</li>
         </ul>
       </div>
@@ -514,8 +514,8 @@ img{max-width:100%;height:auto;display:block}
       </details>
 
       <details>
-        <summary>기존에 쓰던 피복기로 포설할 수 있나요?</summary>
-        <div class="a">기존 멀칭비닐과 같은 방식으로 포설합니다. 별도의 장비가 필요하지 않습니다. 다만 작업 조건에 따라 장력 조절이 필요할 수 있어, 처음 사용하실 때는 문의해 주시면 안내해 드립니다.</div>
+        <summary>기존에 쓰던 피복기로 그대로 씌울 수 있나요?</summary>
+        <div class="a">기존 멀칭비닐과 같은 방식으로 피복합니다. 별도의 장비가 필요하지 않습니다. 다만 작업 조건에 따라 장력 조절이 필요할 수 있어, 처음 사용하실 때는 문의해 주시면 안내해 드립니다.</div>
       </details>
 
       <details>
@@ -613,7 +613,7 @@ img{max-width:100%;height:auto;display:block}
     "addressRegion":"전북특별자치도",
     "addressCountry":"KR"
   },
-  "description":"농업용 생분해 멀칭필름 이지멀칭을 개발·생산하는 친환경 농자재 기업"
+  "description":"생분해 바이오 소재를 연구·생산하는 그린바이오 기업. 농업용 생분해 멀칭필름 이지멀칭 제조"
 }
 </script>
 
@@ -624,8 +624,8 @@ img{max-width:100%;height:auto;display:block}
   "mainEntity":[
     {"@type":"Question","name":"수확이 끝나면 정말 걷어내지 않아도 되나요?",
      "acceptedAnswer":{"@type":"Answer","text":"수거하지 않고 트랙터 로터리 작업으로 토양에 섞어 넣으시면 됩니다. 별도의 폐비닐 수거·배출 작업이 필요하지 않습니다."}},
-    {"@type":"Question","name":"기존에 쓰던 피복기로 포설할 수 있나요?",
-     "acceptedAnswer":{"@type":"Answer","text":"기존 멀칭비닐과 같은 방식으로 포설합니다. 별도의 장비가 필요하지 않습니다."}},
+    {"@type":"Question","name":"기존에 쓰던 피복기로 그대로 씌울 수 있나요?",
+     "acceptedAnswer":{"@type":"Answer","text":"기존 멀칭비닐과 같은 방식으로 피복합니다. 별도의 장비가 필요하지 않습니다."}},
     {"@type":"Question","name":"정부나 지자체 보조금을 받을 수 있나요?",
      "acceptedAnswer":{"@type":"Answer","text":"친환경 농자재 지원사업은 지자체별로 대상 품목과 지원 비율이 다릅니다. 관할 시·군 농업기술센터 또는 지역 농협에 문의하시면 정확한 안내를 받으실 수 있습니다."}}
   ]

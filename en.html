@@ -52,7 +52,7 @@
   --maxw:1080px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
+html{scroll-behavior:smooth;scroll-padding-top:82px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{
   font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
@@ -65,10 +65,10 @@ img{max-width:100%;height:auto;display:block}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
 
 .topbar{position:sticky;top:0;z-index:60;background:rgba(252,251,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--hair)}
-.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
 .brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:16.5px;letter-spacing:-.02em;text-decoration:none}
 .brand img{height:26px;width:auto}
-.brand-logo{height:30px;width:auto}
+.brand-logo{height:44px;width:auto}
 .brand-txt{display:flex;align-items:center;gap:8px;font-size:19px;font-weight:800;letter-spacing:-.02em;color:var(--brand)}
 .brand-txt[hidden]{display:none}
 .topnav{display:flex;gap:22px;font-size:14.5px;color:var(--soil-mid)}
@@ -108,7 +108,7 @@ img{max-width:100%;height:auto;display:block}
 
 .video-frame{margin-top:34px;position:relative;width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--hair);overflow:hidden}
 .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.video-frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
+.video-frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
 .video-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--film);color:var(--soil-mid);gap:8px;text-align:center;padding:24px}
 .video-empty strong{font-size:17px;color:var(--soil)}
 .video-empty span{font-size:14px}
@@ -365,8 +365,9 @@ img{max-width:100%;height:auto;display:block}
   <div class="wrap">
     <h2 class="sec-title">GreenGenius Co., Ltd.</h2>
     <p class="sec-body">
-      Founded in 2023 in the Republic of Korea. In 2024 we acquired the agricultural business of Eurofarms,
-      and in 2025 we established in-house manufacturing with our own registered factory.
+      A green bio materials company recognised by the Korean government as a Green Bio Enterprise.
+      Our corporate R&amp;D centre develops biodegradable bio-based materials and applies them to
+      agricultural products. In-house manufacturing has been in place since 2025.
     </p>
 
     <div class="timeline">
@@ -380,7 +381,6 @@ img{max-width:100%;height:auto;display:block}
           <li>Easy Mulching trademark registered (09 May)</li>
           <li>MOU with Dongsung Chemical — bioplastics co-development (15 Apr)</li>
           <li>MOU with Orders Co., Ltd. — biodegradable agricultural materials (28 May)</li>
-          <li>Acquisition of Eurofarms business (14 Nov)</li>
         </ul>
       </div>
       <div class="tl-row">
@@ -391,7 +391,7 @@ img{max-width:100%;height:auto;display:block}
           <li>Green Bio Company Recognition (06 Aug)</li>
           <li>Corporate R&amp;D Center Recognition (03 Sep)</li>
           <li>Paju branch established (16 Oct)</li>
-          <li>Factory Registration Certificate (17 Dec)</li>
+          <li>In-house manufacturing established (17 Dec)</li>
           <li>Selected as lead company, MSS Collaborative Programme (20 Dec)</li>
         </ul>
       </div>
@@ -529,7 +529,7 @@ img{max-width:100%;height:auto;display:block}
     "addressRegion":"Jeonbuk State",
     "addressCountry":"KR"
   },
-  "description":"Manufacturer of Easy Mulching biodegradable agricultural mulch film"
+  "description":"Green bio materials company developing and manufacturing biodegradable materials, including Easy Mulching agricultural mulch film"
 }
 </script>
 
