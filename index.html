@@ -77,7 +77,9 @@ img{max-width:100%;height:auto;display:block}
 .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
 .brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:16.5px;letter-spacing:-.02em;text-decoration:none}
 .brand img{height:26px;width:auto}
+.brand-logo{height:30px;width:auto}
 .brand-txt{display:flex;align-items:center;gap:8px;font-size:19px;font-weight:800;letter-spacing:-.03em;color:var(--brand)}
+.brand-txt[hidden]{display:none}
 .topnav{display:flex;gap:24px;font-size:14.5px;color:var(--soil-mid)}
 .topnav a{text-decoration:none}
 .topnav a:hover{color:var(--brand)}
@@ -119,6 +121,7 @@ img{max-width:100%;height:auto;display:block}
 /* ── 동영상 ── */
 .video-frame{margin-top:34px;position:relative;width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--hair);overflow:hidden}
 .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
 .video-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--film);color:var(--soil-mid);gap:8px;text-align:center;padding:24px}
 .video-empty strong{font-size:17px;color:var(--soil)}
 .video-empty span{font-size:14px}
@@ -214,11 +217,10 @@ img{max-width:100%;height:auto;display:block}
 <header class="topbar">
   <div class="wrap">
     <a class="brand" href="#top">
-      <!-- [확인필요] 로고 PDF를 PNG로 저장해 images/logo.png 로 넣은 뒤
-           아래 <span class="brand-txt"> 부터 </span> 까지를 지우고
-           이 한 줄로 바꾸세요:
-           <img src="images/logo.png" alt="이지멀칭 - 퇴비가 되는 멀칭비닐"> -->
-      <span class="brand-txt">
+      <!-- 로고 추가 방법: images 폴더에 logo.png 파일을 넣으면 자동으로 바뀝니다.
+           파일이 없으면 아래 텍스트 로고가 표시됩니다. -->
+      <img class="brand-logo" src="images/logo.png" alt="이지멀칭 - 퇴비가 되는 멀칭비닐">
+      <span class="brand-txt" hidden>
         <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 2C7 7 4 10 4 14a8 8 0 0 0 16 0c0-4-3-7-8-12z" fill="#1F5A22"/>
           <path d="M12 2C9.5 7 9 10.5 9.5 14.5" stroke="#FCFBF7" stroke-width="1.6" fill="none"/>
@@ -294,13 +296,16 @@ img{max-width:100%;height:auto;display:block}
 </section>
 
 <!-- ══ [수정4] 홍보 동영상 ══════════════════════════════════════
-     영상이 준비되면:
-     1) 유튜브에 영상을 올립니다
-     2) 영상 주소에서 v= 뒤의 글자를 복사합니다
-        예) youtube.com/watch?v=ABC123xyz  →  ABC123xyz
-     3) 아래 <div class="video-empty"> 로 시작해서 </div> 로 끝나는
-        4줄을 통째로 지우고, 그 자리에 아래 한 줄을 붙여넣은 뒤
-        ABC123xyz 부분만 실제 값으로 바꾸세요
+     방법 A — 파일을 직접 올리기 (쉬움)
+       videos 폴더를 만들어 intro.mp4 파일을 넣으면 자동으로 재생됩니다.
+       ※ 파일 크기는 25MB를 넘으면 안 됩니다. 넘으면 방법 B를 쓰세요.
+
+     방법 B — 유튜브에 올리기 (용량 제한 없음)
+       1) 유튜브에 영상을 올립니다
+       2) 주소에서 v= 뒤의 글자를 복사합니다
+          예) youtube.com/watch?v=ABC123xyz  →  ABC123xyz
+       3) 아래 <video ...></video> 한 줄을 지우고 이 줄을 붙여넣은 뒤
+          ABC123xyz 부분만 바꾸세요
 
      <iframe src="https://www.youtube.com/embed/ABC123xyz" title="이지멀칭 소개 영상" allowfullscreen loading="lazy"></iframe>
      ══════════════════════════════════════════════════════════ -->
@@ -309,10 +314,7 @@ img{max-width:100%;height:auto;display:block}
     <h2 class="sec-title">이지멀칭 사용 현장</h2>
     <p class="sec-body">포설부터 수확 후 로터리 작업까지, 실제 사용 과정을 영상으로 확인하세요.</p>
     <div class="video-frame">
-      <div class="video-empty">
-        <strong>영상 준비 중입니다</strong>
-        <span>제품 사용 영상을 곧 올릴 예정입니다.</span>
-      </div>
+      <video class="site-video" src="videos/intro.mp4" controls preload="metadata" playsinline></video>
     </div>
 
     <!-- ══ [수정5] 자유 홍보문구 ══
@@ -359,20 +361,20 @@ img{max-width:100%;height:auto;display:block}
       </div>
     </div>
 
-    <!-- [확인필요] 제품 사진 준비되면 아래 <div class="ph"> 한 줄을
-         이렇게 바꾸세요:  <img src="images/product-1.jpg" alt="이지멀칭 제품 롤">
-         (파일은 images 폴더에 넣습니다) -->
+    <!-- 사진 추가 방법: images 폴더에 아래 파일명 그대로 넣으면 자동으로 표시됩니다.
+         product-1.jpg / product-2.jpg / product-3.jpg
+         파일이 없으면 점선 상자가 대신 표시되며 화면이 깨지지 않습니다. -->
     <div class="shots">
       <figure>
-        <div class="ph">제품 사진</div>
+        <img src="images/product-1.jpg" alt="이지멀칭 제품 롤">
         <figcaption>제품 외관</figcaption>
       </figure>
       <figure>
-        <div class="ph">제품 사진</div>
+        <img src="images/product-2.jpg" alt="이지멀칭 포설 현장">
         <figcaption>포설 상태</figcaption>
       </figure>
       <figure>
-        <div class="ph">제품 사진</div>
+        <img src="images/product-3.jpg" alt="이지멀칭 분해 진행 상태">
         <figcaption>분해 진행 상태</figcaption>
       </figure>
     </div>
@@ -622,6 +624,41 @@ img{max-width:100%;height:auto;display:block}
      "acceptedAnswer":{"@type":"Answer","text":"친환경 농자재 지원사업은 지자체별로 대상 품목과 지원 비율이 다릅니다. 관할 시·군 농업기술센터 또는 지역 농협에 문의하시면 정확한 안내를 받으실 수 있습니다."}}
   ]
 }
+</script>
+
+<script>
+/* 이미지 파일이 아직 없어도 화면이 깨지지 않게 처리합니다.
+   images 폴더에 파일을 올리면 자동으로 사진이 표시됩니다. */
+(function(){
+  var logo = document.querySelector('.brand-logo');
+  if (logo) {
+    logo.addEventListener('error', function(){
+      logo.hidden = true;
+      var t = document.querySelector('.brand-txt');
+      if (t) t.hidden = false;
+    });
+    if (logo.complete && logo.naturalWidth === 0) logo.dispatchEvent(new Event('error'));
+  }
+  document.querySelectorAll('.shots img').forEach(function(im){
+    function swap(){
+      var d = document.createElement('div');
+      d.className = 'ph';
+      d.textContent = '사진 준비 중';
+      if (im.parentNode) im.replaceWith(d);
+    }
+    im.addEventListener('error', swap);
+    if (im.complete && im.naturalWidth === 0) swap();
+  });
+  var vid = document.querySelector('.site-video');
+  if (vid) {
+    vid.addEventListener('error', function(){
+      var box = document.createElement('div');
+      box.className = 'video-empty';
+      box.innerHTML = '<strong>영상 준비 중입니다</strong><span>제품 사용 영상을 곧 올릴 예정입니다.</span>';
+      if (vid.parentNode) vid.replaceWith(box);
+    }, true);
+  }
+})();
 </script>
 
 </body>

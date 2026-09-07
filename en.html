@@ -68,7 +68,9 @@ img{max-width:100%;height:auto;display:block}
 .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
 .brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:16.5px;letter-spacing:-.02em;text-decoration:none}
 .brand img{height:26px;width:auto}
+.brand-logo{height:30px;width:auto}
 .brand-txt{display:flex;align-items:center;gap:8px;font-size:19px;font-weight:800;letter-spacing:-.02em;color:var(--brand)}
+.brand-txt[hidden]{display:none}
 .topnav{display:flex;gap:22px;font-size:14.5px;color:var(--soil-mid)}
 .topnav a{text-decoration:none}
 .topnav a:hover{color:var(--brand)}
@@ -106,6 +108,7 @@ img{max-width:100%;height:auto;display:block}
 
 .video-frame{margin-top:34px;position:relative;width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--hair);overflow:hidden}
 .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
 .video-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--film);color:var(--soil-mid);gap:8px;text-align:center;padding:24px}
 .video-empty strong{font-size:17px;color:var(--soil)}
 .video-empty span{font-size:14px}
@@ -185,8 +188,9 @@ img{max-width:100%;height:auto;display:block}
 <header class="topbar">
   <div class="wrap">
     <a class="brand" href="#top">
-      <!-- Replace with: <img src="images/logo.png" alt="Easy Mulching"> once the logo file is added -->
-      <span class="brand-txt">
+      <!-- Put logo.png in the images folder and it appears automatically. -->
+      <img class="brand-logo" src="images/logo.png" alt="Easy Mulching">
+      <span class="brand-txt" hidden>
         <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 2C7 7 4 10 4 14a8 8 0 0 0 16 0c0-4-3-7-8-12z" fill="#1F5A22"/>
           <path d="M12 2C9.5 7 9 10.5 9.5 14.5" stroke="#FCFBF7" stroke-width="1.6" fill="none"/>
@@ -260,9 +264,8 @@ img{max-width:100%;height:auto;display:block}
 </section>
 
 <!-- ══ [EN-3] Video ══
-     When the video is ready, delete the four lines beginning with
-     <div class="video-empty"> and paste this line in their place,
-     replacing ABC123xyz with your YouTube video ID:
+     Option A — upload a file: put intro.mp4 in a "videos" folder (max 25MB).
+     Option B — YouTube: replace the <video> line below with
 
      <iframe src="https://www.youtube.com/embed/ABC123xyz" title="Easy Mulching" allowfullscreen loading="lazy"></iframe>
      ══════════════════════════════════════════════════════════ -->
@@ -271,10 +274,7 @@ img{max-width:100%;height:auto;display:block}
     <h2 class="sec-title">Easy Mulching in the field</h2>
     <p class="sec-body">From laying the film to tilling it in after harvest.</p>
     <div class="video-frame">
-      <div class="video-empty">
-        <strong>Video coming soon</strong>
-        <span>Field footage will be published here.</span>
-      </div>
+      <video class="site-video" src="videos/intro.mp4" controls preload="metadata" playsinline></video>
     </div>
   </div>
 </section>
@@ -309,19 +309,18 @@ img{max-width:100%;height:auto;display:block}
       </div>
     </div>
 
-    <!-- Replace each <div class="ph"> line with:
-         <img src="images/product-1.jpg" alt="Easy Mulching roll">  -->
+    <!-- Put product-1.jpg / product-2.jpg / product-3.jpg in the images folder. -->
     <div class="shots">
       <figure>
-        <div class="ph">Product photo</div>
+        <img src="images/product-1.jpg" alt="Easy Mulching roll">
         <figcaption>Product roll</figcaption>
       </figure>
       <figure>
-        <div class="ph">Product photo</div>
+        <img src="images/product-2.jpg" alt="Film laid in the field">
         <figcaption>Laid in the field</figcaption>
       </figure>
       <figure>
-        <div class="ph">Product photo</div>
+        <img src="images/product-3.jpg" alt="Degradation in progress">
         <figcaption>Degradation in progress</figcaption>
       </figure>
     </div>
@@ -528,6 +527,40 @@ img{max-width:100%;height:auto;display:block}
   },
   "description":"Manufacturer of Easy Mulching biodegradable agricultural mulch film"
 }
+</script>
+
+<script>
+/* Falls back gracefully when image files are not yet uploaded. */
+(function(){
+  var logo = document.querySelector('.brand-logo');
+  if (logo) {
+    logo.addEventListener('error', function(){
+      logo.hidden = true;
+      var t = document.querySelector('.brand-txt');
+      if (t) t.hidden = false;
+    });
+    if (logo.complete && logo.naturalWidth === 0) logo.dispatchEvent(new Event('error'));
+  }
+  document.querySelectorAll('.shots img').forEach(function(im){
+    function swap(){
+      var d = document.createElement('div');
+      d.className = 'ph';
+      d.textContent = 'Photo coming soon';
+      if (im.parentNode) im.replaceWith(d);
+    }
+    im.addEventListener('error', swap);
+    if (im.complete && im.naturalWidth === 0) swap();
+  });
+  var vid = document.querySelector('.site-video');
+  if (vid) {
+    vid.addEventListener('error', function(){
+      var box = document.createElement('div');
+      box.className = 'video-empty';
+      box.innerHTML = '<strong>Video coming soon</strong><span>Field footage will be published here.</span>';
+      if (vid.parentNode) vid.replaceWith(box);
+    }, true);
+  }
+})();
 </script>
 
 </body>
