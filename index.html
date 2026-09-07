@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ╔══════════════════════════════════════════════════════════════╗
+     ║  그린지니어스 홈페이지 — 수정 안내                             ║
+     ║                                                              ║
+     ║  이 파일 하나만 고치면 홈페이지 전체가 바뀝니다.               ║
+     ║  아래 번호를 Ctrl+F 로 검색해서 찾아가세요.                    ║
+     ║                                                              ║
+     ║   [수정1] 검색결과 제목·설명                                   ║
+     ║   [수정2] 색상                                                ║
+     ║   [수정3] 첫화면 문구                                          ║
+     ║   [수정4] 홍보 동영상  ← 유튜브 주소만 바꾸면 됨               ║
+     ║   [수정5] 자유 홍보문구 (수시로 바꾸는 칸)                     ║
+     ║   [수정6] 제품 설명                                            ║
+     ║   [수정7] 자주 묻는 질문 (Q&A)                                 ║
+     ║   [수정8] 연락처·링크                                          ║
+     ║   [수정9] 사업자정보                                           ║
+     ║                                                              ║
+     ║  ※ [확인필요] 라고 적힌 곳은 아직 값이 비어 있습니다.          ║
+     ╚══════════════════════════════════════════════════════════════╝ -->
+
+<!-- ══ [수정1] 검색결과에 보이는 제목과 설명 ══ -->
+<title>이지멀칭 | 퇴비가 되는 멀칭비닐 - 주식회사 그린지니어스</title>
+<meta name="description" content="수거 작업이 필요 없는 농업용 생분해 멀칭필름 이지멀칭. 특허 제10-2951538호. 벤처기업·그린바이오기업 인정. 주식회사 그린지니어스.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="이지멀칭 | 퇴비가 되는 멀칭비닐">
+<meta property="og:description" content="트랙터 로터리 작업만으로 밭갈이 완료. 농업용 생분해 멀칭필름 이지멀칭.">
+<meta property="og:url" content="https://www.ggenius.kr">
+<meta property="og:image" content="https://www.ggenius.kr/images/og.jpg">
+<meta name="theme-color" content="#1F5A22">
+<link rel="canonical" href="https://www.ggenius.kr">
+<link rel="icon" href="images/favicon.png">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+<style>
+/* ══ [수정2] 색상 ══
+   --brand 값 하나만 바꿔도 버튼·강조색이 전부 따라 바뀝니다.
+   현재 값은 이지멀칭 로고의 초록색입니다. */
+:root{
+  --brand:#1F5A22;
+  --brand-lite:#4C8A3E;
+  --paper:#FCFBF7;
+  --ink:#181410;
+  --soil:#3A2E22;
+  --soil-mid:#6E6154;
+  --hair:#DCD6C8;
+  --film:#EDEAE0;
+  --kakao:#FAE100;
+  --naver:#03C75A;
+  --maxw:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,'Malgun Gothic',sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.75;
+  -webkit-font-smoothing:antialiased;word-break:keep-all;
+  padding-bottom:76px;
+}
+a{color:inherit}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+
+/* ── 상단바 ── */
+.topbar{position:sticky;top:0;z-index:60;background:rgba(252,251,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--hair)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:16.5px;letter-spacing:-.02em;text-decoration:none}
+.brand img{height:26px;width:auto}
+.brand-txt{display:flex;align-items:center;gap:8px;font-size:19px;font-weight:800;letter-spacing:-.03em;color:var(--brand)}
+.topnav{display:flex;gap:24px;font-size:14.5px;color:var(--soil-mid)}
+.topnav a{text-decoration:none}
+.topnav a:hover{color:var(--brand)}
+@media(max-width:860px){.topnav{display:none}}
+
+/* ── 버튼 ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:13px 24px;border-radius:3px;font-size:15.5px;font-weight:600;text-decoration:none;border:1px solid transparent;transition:filter .15s,background .15s}
+.btn:hover{filter:brightness(.94)}
+.btn:focus-visible{outline:3px solid var(--brand-lite);outline-offset:3px}
+.btn-brand{background:var(--brand);color:#fff}
+.btn-kakao{background:var(--kakao);color:#3C1E1E}
+.btn-naver{background:var(--naver);color:#fff}
+.btn-line{background:transparent;color:var(--soil);border-color:var(--soil)}
+.btn-line:hover{background:var(--film)}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+
+/* ── 히어로 ── */
+.hero{padding:76px 0 0}
+.hero .eyebrow{color:var(--brand);font-weight:600;font-size:15px}
+.hero h1{font-size:clamp(33px,6vw,58px);line-height:1.22;font-weight:700;letter-spacing:-.035em;margin-top:12px;max-width:16ch}
+.hero .lede{margin-top:24px;font-size:clamp(16px,2vw,18.5px);color:var(--soil);max-width:44ch}
+.strata{margin-top:56px}
+.strata svg{width:100%;height:auto;display:block}
+
+/* ── 섹션 ── */
+.band{padding:72px 0;border-top:1px solid var(--hair)}
+.band--film{background:var(--film);border-top:none}
+.band--soil{background:var(--soil);color:var(--film);border-top:none}
+.sec-title{font-size:clamp(23px,3.3vw,30px);font-weight:700;letter-spacing:-.03em;line-height:1.35;max-width:24ch}
+.sec-body{margin-top:18px;font-size:16.5px;max-width:58ch;color:var(--soil)}
+.band--soil .sec-body{color:#C9C2B0}
+
+/* ── 동영상 ── */
+.video-frame{margin-top:34px;position:relative;width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--hair);overflow:hidden}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--film);color:var(--soil-mid);gap:8px;text-align:center;padding:24px}
+.video-empty strong{font-size:17px;color:var(--soil)}
+.video-empty span{font-size:14px}
+
+/* ── 자유 홍보문구 ── */
+.notice{margin-top:30px;border-left:3px solid var(--brand);background:#fff;padding:20px 22px}
+.notice h3{font-size:16.5px;font-weight:700}
+.notice p{margin-top:7px;font-size:15.5px;color:var(--soil)}
+
+/* ── 비교표 ── */
+.compare{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--hair);background:#fff}
+.compare > div{padding:26px 22px}
+.compare > div + div{border-left:1px solid var(--hair)}
+.compare h3{font-size:15px;font-weight:600;color:var(--soil-mid);margin-bottom:12px}
+.compare .new h3{color:var(--brand)}
+.compare ul{list-style:none;font-size:15.5px;color:var(--soil)}
+.compare li{padding:7px 0 7px 17px;position:relative}
+.compare li::before{content:'';position:absolute;left:0;top:15px;width:7px;height:1px;background:var(--soil-mid)}
+.compare .new li::before{background:var(--brand)}
+@media(max-width:640px){.compare{grid-template-columns:1fr}.compare > div + div{border-left:none;border-top:1px solid var(--hair)}}
+
+/* ── 제품 사진 ── */
+.shots{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.shots img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--hair)}
+.shots .ph{width:100%;aspect-ratio:4/3;background:#fff;border:1px dashed var(--hair);display:flex;align-items:center;justify-content:center;color:var(--soil-mid);font-size:14px}
+.shots figcaption{font-size:13.5px;color:var(--soil-mid);margin-top:7px}
+.shots figure{margin:0}
+@media(max-width:700px){.shots{grid-template-columns:1fr 1fr}}
+
+/* ── 특허 ── */
+.patent{margin-top:34px;background:#fff;border:1px solid var(--hair);padding:30px 26px}
+.patent .no{font-size:14px;color:var(--brand);font-weight:700}
+.patent .name{font-size:18.5px;font-weight:700;margin-top:8px;line-height:1.45;letter-spacing:-.02em}
+.patent .meta{font-size:14.5px;color:var(--soil-mid);margin-top:12px}
+
+/* ── 인증 카드 ── */
+.certs{margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px}
+.cert{border:1px solid var(--hair);background:#fff;padding:20px}
+.cert .t{font-weight:600;font-size:16px}
+.cert .d{font-size:14px;color:var(--soil-mid);margin-top:5px}
+
+/* ── 연혁 ── */
+.timeline{margin-top:34px;border-top:1px solid var(--hair)}
+.tl-row{display:grid;grid-template-columns:110px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--hair)}
+.tl-row .y{font-weight:700;font-size:16px;color:var(--brand)}
+.tl-row ul{list-style:none;font-size:15.5px;color:var(--soil)}
+.tl-row li{padding:3px 0}
+@media(max-width:560px){.tl-row{grid-template-columns:1fr;gap:6px}}
+
+/* ── 거점 ── */
+.sites{margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair)}
+.sites > div{background:#fff;padding:24px 20px}
+.sites .role{font-size:13px;color:var(--brand);font-weight:700}
+.sites .name{font-size:18px;font-weight:700;margin-top:5px;letter-spacing:-.02em}
+.sites .addr{font-size:14px;color:var(--soil-mid);margin-top:7px;line-height:1.55}
+@media(max-width:700px){.sites{grid-template-columns:1fr}}
+
+/* ── FAQ ── */
+.faq{margin-top:30px;border-top:1px solid var(--hair)}
+.faq details{border-bottom:1px solid var(--hair)}
+.faq summary{cursor:pointer;padding:20px 40px 20px 0;font-size:17px;font-weight:600;position:relative;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';position:absolute;right:6px;top:18px;font-size:23px;font-weight:400;color:var(--brand);line-height:1}
+.faq details[open] summary::after{content:'−'}
+.faq summary:focus-visible{outline:3px solid var(--brand-lite);outline-offset:2px}
+.faq .a{padding:0 0 22px;font-size:16px;color:var(--soil);max-width:62ch}
+
+/* ── 문의 ── */
+.contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:46px;align-items:start}
+@media(max-width:820px){.contact-grid{grid-template-columns:1fr;gap:32px}}
+.ways{list-style:none;font-size:16.5px;margin-top:4px}
+.ways li{padding:14px 0;border-bottom:1px solid rgba(237,234,224,.2)}
+.ways .k{font-size:13.5px;color:#A79C88;display:block;margin-bottom:2px}
+.ways a{color:var(--film);text-decoration:none;border-bottom:1px solid rgba(237,234,224,.35)}
+
+/* ── 하단 고정 바 (모바일) ── */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;gap:1px;background:var(--hair);border-top:1px solid var(--hair)}
+.dock a{flex:1;display:flex;align-items:center;justify-content:center;padding:16px 4px;font-size:14.5px;font-weight:600;text-decoration:none}
+@media(max-width:860px){.dock{display:flex}}
+
+/* ── PC 우측 카카오 버튼 ── */
+.float-kakao{position:fixed;right:22px;bottom:22px;z-index:70;background:var(--kakao);color:#3C1E1E;padding:14px 20px;border-radius:40px;font-weight:700;font-size:15px;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.18)}
+@media(max-width:860px){.float-kakao{display:none}}
+
+/* ── 푸터 ── */
+.foot{padding:40px 0 34px;font-size:13.5px;color:var(--soil-mid);border-top:1px solid var(--hair)}
+.foot .biz{line-height:1.95}
+.foot .legal{margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <!-- [확인필요] 로고 PDF를 PNG로 저장해 images/logo.png 로 넣은 뒤
+           아래 <span class="brand-txt"> 부터 </span> 까지를 지우고
+           이 한 줄로 바꾸세요:
+           <img src="images/logo.png" alt="이지멀칭 - 퇴비가 되는 멀칭비닐"> -->
+      <span class="brand-txt">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C7 7 4 10 4 14a8 8 0 0 0 16 0c0-4-3-7-8-12z" fill="#1F5A22"/>
+          <path d="M12 2C9.5 7 9 10.5 9.5 14.5" stroke="#FCFBF7" stroke-width="1.6" fill="none"/>
+        </svg>
+        이지멀칭
+      </span>
+    </a>
+    <nav class="topnav">
+      <a href="#product">이지멀칭</a>
+      <a href="#tech">기술·특허</a>
+      <a href="#certs">인증</a>
+      <a href="#company">회사</a>
+      <a href="#faq">자주 묻는 질문</a>
+      <a href="#contact">문의·구매</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ══ [수정3] 첫화면 문구 ══ -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">농업용 생분해 멀칭필름</div>
+    <h1>걷어내지 않는 멀칭비닐</h1>
+    <p class="lede">
+      수확이 끝나면 수거하는 대신 트랙터 로터리 작업으로 그대로 밭을 갈면 됩니다.
+      폐비닐 수거와 처리에 드는 시간과 비용을 줄입니다.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-naver" href="https://smartstore.naver.com/egmc/products/6740015690" target="_blank" rel="noopener">스마트스토어에서 구매</a>
+      <a class="btn btn-kakao" href="http://pf.kakao.com/_xexlJiM/chat" target="_blank" rel="noopener">카카오톡 실시간 상담</a>
+      <a class="btn btn-line" href="#product">제품 알아보기</a>
+    </div>
+
+    <div class="strata" aria-hidden="true">
+      <svg viewBox="0 0 1080 240" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="1080" height="88" fill="#FCFBF7"/>
+        <g fill="#1F5A22">
+          <path d="M178 74c0-9 7-14 15-14 0 9-6 14-15 14z"/>
+          <path d="M420 74c0-10 8-16 17-16 0 10-7 16-17 16z"/>
+          <path d="M900 74c0-10 8-16 17-16 0 10-7 16-17 16z"/>
+        </g>
+        <g fill="#4C8A3E"><path d="M660 78c0-9 7-14 15-14 0 9-6 14-15 14z"/></g>
+        <g stroke="#1F5A22" stroke-width="2" fill="none">
+          <path d="M178 88V70"/><path d="M420 88V62"/><path d="M660 88V72"/><path d="M900 88V64"/>
+        </g>
+        <rect x="0" y="88" width="1080" height="15" fill="#2B2B2B"/>
+        <rect x="0" y="103" width="1080" height="56" fill="#6E6154"/>
+        <rect x="0" y="159" width="1080" height="81" fill="#3A2E22"/>
+        <g fill="#8B7A63" opacity=".5">
+          <circle cx="92" cy="124" r="3"/><circle cx="243" cy="140" r="2.2"/><circle cx="366" cy="120" r="2.6"/>
+          <circle cx="512" cy="143" r="3"/><circle cx="641" cy="126" r="2.2"/><circle cx="792" cy="141" r="2.8"/>
+          <circle cx="931" cy="122" r="2.4"/><circle cx="1031" cy="137" r="2.6"/>
+        </g>
+        <g fill="#584936" opacity=".75">
+          <circle cx="152" cy="192" r="3.2"/><circle cx="332" cy="214" r="2.6"/><circle cx="562" cy="186" r="3"/>
+          <circle cx="722" cy="218" r="2.4"/><circle cx="882" cy="194" r="3"/><circle cx="1012" cy="212" r="2.6"/>
+        </g>
+        <g stroke="#4C8A3E" stroke-width="1.4" fill="none" opacity=".8">
+          <path d="M420 103v46M420 122l-16 14M420 134l18 16"/>
+          <path d="M900 103v40M900 119l14 12"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ══ [수정4] 홍보 동영상 ══════════════════════════════════════
+     영상이 준비되면:
+     1) 유튜브에 영상을 올립니다
+     2) 영상 주소에서 v= 뒤의 글자를 복사합니다
+        예) youtube.com/watch?v=ABC123xyz  →  ABC123xyz
+     3) 아래 <div class="video-empty"> 로 시작해서 </div> 로 끝나는
+        4줄을 통째로 지우고, 그 자리에 아래 한 줄을 붙여넣은 뒤
+        ABC123xyz 부분만 실제 값으로 바꾸세요
+
+     <iframe src="https://www.youtube.com/embed/ABC123xyz" title="이지멀칭 소개 영상" allowfullscreen loading="lazy"></iframe>
+     ══════════════════════════════════════════════════════════ -->
+<section class="band" id="video">
+  <div class="wrap">
+    <h2 class="sec-title">이지멀칭 사용 현장</h2>
+    <p class="sec-body">포설부터 수확 후 로터리 작업까지, 실제 사용 과정을 영상으로 확인하세요.</p>
+    <div class="video-frame">
+      <div class="video-empty">
+        <strong>영상 준비 중입니다</strong>
+        <span>제품 사용 영상을 곧 올릴 예정입니다.</span>
+      </div>
+    </div>
+
+    <!-- ══ [수정5] 자유 홍보문구 ══
+         행사, 보조금 공고, 신제품 소식 등을 수시로 바꿔 넣는 칸입니다.
+         쓸 내용이 생기면 아래 4줄 앞뒤의 주석 표시(<!-- 와 -- >)를 지워서 살리세요.
+
+    <div class="notice">
+      <h3>공지 제목</h3>
+      <p>안내할 내용</p>
+    </div>
+    -->
+
+    <!-- 참고: 위 주석을 살릴 때는 여는 표시와 닫는 표시를 함께 지워야 합니다 -->
+  </div>
+</section>
+
+<!-- ══ [수정6] 제품 설명 ══ -->
+<section class="band band--film" id="product">
+  <div class="wrap">
+    <h2 class="sec-title">이지멀칭</h2>
+    <p class="sec-body">
+      토양에서 분해되도록 설계한 농업용 멀칭필름입니다.
+      기존 멀칭비닐과 같은 방식으로 포설하되, 수확 후 걷어내 처리하는 과정을 줄이는 것이 목적입니다.
+    </p>
+
+    <div class="compare">
+      <div class="now">
+        <h3>일반 PE 멀칭비닐</h3>
+        <ul>
+          <li>수확 후 걷어내는 작업이 필요</li>
+          <li>흙이 묻어 재활용이 어려움</li>
+          <li>폐비닐 처리 비용이 발생</li>
+          <li>잔재가 토양에 남을 수 있음</li>
+        </ul>
+      </div>
+      <div class="new">
+        <h3>이지멀칭</h3>
+        <ul>
+          <li>수거 없이 로터리 작업으로 마무리</li>
+          <li>토양에서 분해되도록 설계</li>
+          <li>폐비닐 처리 부담을 줄임</li>
+          <li>포설 방식은 기존과 동일</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- [확인필요] 제품 사진 준비되면 아래 <div class="ph"> 한 줄을
+         이렇게 바꾸세요:  <img src="images/product-1.jpg" alt="이지멀칭 제품 롤">
+         (파일은 images 폴더에 넣습니다) -->
+    <div class="shots">
+      <figure>
+        <div class="ph">제품 사진</div>
+        <figcaption>제품 외관</figcaption>
+      </figure>
+      <figure>
+        <div class="ph">제품 사진</div>
+        <figcaption>포설 상태</figcaption>
+      </figure>
+      <figure>
+        <div class="ph">제품 사진</div>
+        <figcaption>분해 진행 상태</figcaption>
+      </figure>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn btn-naver" href="https://smartstore.naver.com/egmc/products/6740015690" target="_blank" rel="noopener">규격·가격 보기</a>
+      <a class="btn btn-kakao" href="http://pf.kakao.com/_xexlJiM/chat" target="_blank" rel="noopener">카카오톡으로 문의</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 기술·특허 ══ -->
+<section class="band" id="tech">
+  <div class="wrap">
+    <h2 class="sec-title">보유 기술</h2>
+    <p class="sec-body">
+      감귤 부산물에서 얻은 소재를 활용해 토양 병원균 억제 기능을 결합한 멀칭 시스템으로 특허를 등록했습니다.
+    </p>
+    <div class="patent">
+      <div class="no">특허 제10-2951538호</div>
+      <div class="name">감귤 부산물 유래 박테리아 셀룰로오스 및 정유의 분해 연동 방출을 이용한 토양 병원균 억제용 생분해 멀칭 시스템</div>
+      <div class="meta">출원 2026.01.07 · 등록 2026.04.07 · 특허권자 주식회사 그린지니어스</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 인증 및 지식재산 ══ -->
+<section class="band band--film" id="certs">
+  <div class="wrap">
+    <h2 class="sec-title">인증 및 지식재산</h2>
+    <p class="sec-body">아래 인증서·등록증 사본은 요청하시면 보내드립니다.</p>
+    <div class="certs">
+      <div class="cert"><div class="t">벤처기업 확인</div><div class="d">2025.07 취득</div></div>
+      <div class="cert"><div class="t">그린바이오기업 인정</div><div class="d">2025.08 취득</div></div>
+      <div class="cert"><div class="t">기업부설연구소 인정</div><div class="d">2025.09 취득</div></div>
+      <div class="cert"><div class="t">공장등록증명서</div><div class="d">2025.12 취득 · 경기도 파주</div></div>
+      <div class="cert"><div class="t">상표등록 제40-2192943호</div><div class="d">이지멀칭 · 제17류 · 2024.05 등록</div></div>
+      <div class="cert"><div class="t">특허 제10-2951538호</div><div class="d">생분해 멀칭 시스템 · 2026.04 등록</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 회사 ══ -->
+<section class="band" id="company">
+  <div class="wrap">
+    <h2 class="sec-title">주식회사 그린지니어스</h2>
+    <p class="sec-body">
+      2023년 설립된 친환경 농자재 기업입니다. 2024년 유로팜스 사업을 포괄 양수해 유통망을 확보했고,
+      2025년 자체 공장 등록으로 직접 생산 체계를 갖췄습니다.
+    </p>
+
+    <div class="timeline">
+      <div class="tl-row">
+        <div class="y">2023</div>
+        <ul><li>법인 설립 (07.10)</li></ul>
+      </div>
+      <div class="tl-row">
+        <div class="y">2024</div>
+        <ul>
+          <li>이지멀칭 상표등록 (05.09)</li>
+          <li>동성케미컬 MOU — 바이오플라스틱 공동개발 (04.15)</li>
+          <li>(주)오더스 MOU — 생분해 농자재 공동개발 (05.28)</li>
+          <li>유로팜스 사업권 포괄 양수 (11.14)</li>
+        </ul>
+      </div>
+      <div class="tl-row">
+        <div class="y">2025</div>
+        <ul>
+          <li>본점 이전 — 전북특별자치도 전주시 (04.18)</li>
+          <li>벤처기업 확인 (07.02)</li>
+          <li>그린바이오기업 인정 (08.06)</li>
+          <li>기업부설연구소 인정 (09.03)</li>
+          <li>파주지점 설치 (10.16)</li>
+          <li>공장등록증명서 취득 (12.17)</li>
+          <li>중소벤처기업부 공동협업형 주관기업 선정 (12.20)</li>
+        </ul>
+      </div>
+      <div class="tl-row">
+        <div class="y">2026</div>
+        <ul>
+          <li>생분해 멀칭 시스템 특허 등록 (04.07)</li>
+          <li>강동 연구소 확장 이전 (08.25)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sites">
+      <div>
+        <div class="role">본점</div>
+        <div class="name">전주</div>
+        <div class="addr">전북특별자치도 전주시 완산구<br>전주객사2길 99, 3층</div>
+      </div>
+      <div>
+        <div class="role">연구소</div>
+        <div class="name">서울 강동</div>
+        <div class="addr">서울특별시 강동구<br>올림픽로78길 30</div>
+      </div>
+      <div>
+        <div class="role">공장</div>
+        <div class="name">파주</div>
+        <div class="addr">경기도 파주시 월롱면<br>홀작로 70-85</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ [수정7] 자주 묻는 질문 ══════════════════════════════════
+     질문을 추가하려면 아래 <details> 부터 </details> 까지 한 묶음을
+     통째로 복사해서 붙여넣고 질문과 답변만 바꾸세요.
+     ※ 페이지 맨 아래 FAQPage 스크립트에도 같은 질문을 추가하면
+       구글 검색결과에 질문이 함께 표시됩니다.
+     ══════════════════════════════════════════════════════════ -->
+<section class="band band--film" id="faq">
+  <div class="wrap">
+    <h2 class="sec-title">자주 묻는 질문</h2>
+    <div class="faq">
+
+      <details>
+        <summary>수확이 끝나면 정말 걷어내지 않아도 되나요?</summary>
+        <div class="a">네. 수거하지 않고 트랙터 로터리 작업으로 토양에 섞어 넣으시면 됩니다. 별도의 폐비닐 수거·배출 작업이 필요하지 않습니다.</div>
+      </details>
+
+      <details>
+        <summary>분해되는 데 얼마나 걸리나요?</summary>
+        <div class="a">토양 온도와 수분 조건에 따라 달라집니다. 작물의 재배 기간에 맞춰 규격을 선택하시면 되며, 재배하시는 작물과 지역을 알려주시면 적합한 사양을 안내해 드립니다.</div>
+      </details>
+
+      <details>
+        <summary>재배 중에 미리 찢어지지는 않나요?</summary>
+        <div class="a">작물의 재배 기간에 맞춰 두께와 규격을 선택하시면 됩니다. 작물과 재배 지역을 알려주시면 적합한 사양을 안내해 드립니다.</div>
+      </details>
+
+      <details>
+        <summary>기존에 쓰던 피복기로 포설할 수 있나요?</summary>
+        <div class="a">기존 멀칭비닐과 같은 방식으로 포설합니다. 별도의 장비가 필요하지 않습니다. 다만 작업 조건에 따라 장력 조절이 필요할 수 있어, 처음 사용하실 때는 문의해 주시면 안내해 드립니다.</div>
+      </details>
+
+      <details>
+        <summary>정부나 지자체 보조금을 받을 수 있나요?</summary>
+        <div class="a">친환경 농자재 지원사업은 지자체별로 대상 품목과 지원 비율이 다릅니다. 관할 시·군 농업기술센터 또는 지역 농협에 문의하시면 정확한 안내를 받으실 수 있습니다. 신청에 필요한 서류는 저희가 준비해 드립니다.</div>
+      </details>
+
+      <details>
+        <summary>어떤 규격이 있고 가격은 얼마인가요?</summary>
+        <div class="a">규격과 가격은 스마트스토어에서 확인하실 수 있습니다. 대량 구매나 농협·작목반 단위 공급은 별도 조건이 적용되므로 카카오톡이나 전화로 문의해 주세요.</div>
+      </details>
+
+      <details>
+        <summary>소량으로 먼저 써볼 수 있나요?</summary>
+        <div class="a">소량 구매는 스마트스토어에서 가능합니다. 시험 재배용 물량이 필요하시면 카카오톡으로 문의해 주세요.</div>
+      </details>
+
+    </div>
+
+    <div class="cta-row">
+      <a class="btn btn-kakao" href="http://pf.kakao.com/_xexlJiM/chat" target="_blank" rel="noopener">더 궁금한 점은 카카오톡으로</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ [수정8] 연락처·링크 ══ -->
+<section class="band band--soil" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <h2 class="sec-title">문의 및 구매</h2>
+        <p class="sec-body">
+          작물, 재배 면적, 필요 규격을 알려주시면 적합한 사양과 공급 조건을 안내해 드립니다.
+          농협·작목반 단위 공급도 상담 가능합니다.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-kakao" href="http://pf.kakao.com/_xexlJiM/chat" target="_blank" rel="noopener">카카오톡 상담하기</a>
+          <a class="btn btn-naver" href="https://smartstore.naver.com/egmc/products/6740015690" target="_blank" rel="noopener">스마트스토어 바로가기</a>
+        </div>
+      </div>
+      <div>
+        <ul class="ways">
+          <li><span class="k">대표번호</span><a href="tel:16702584">1670-2584</a></li>
+          <li><span class="k">이메일</span><a href="mailto:gg@ggenius.kr">gg@ggenius.kr</a></li>
+          <li><span class="k">상담 시간</span>평일 09:00 – 18:00</li>
+          <li><span class="k">본점</span>전북특별자치도 전주시 완산구 전주객사2길 99, 3층</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ [수정9] 사업자정보 ══ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="biz">
+      주식회사 그린지니어스 · 대표이사 윤종선<br>
+      본점 전북특별자치도 전주시 완산구 전주객사2길 99 (다가동4가)<br>
+      <!-- [확인필요] 사업자등록증·통신판매업신고증을 보고 아래 줄의 번호를 채운 뒤
+           이 주석과 함께 살리세요. 전자상거래법상 표시 의무 여부는 관할 구청 확인 권장.
+      사업자등록번호 000-00-00000 · 통신판매업신고 제0000-전북전주-0000호<br>
+      -->
+      대표번호 1670-2584 · gg@ggenius.kr
+    </div>
+    <div class="legal">
+      <span>© 2026 GreenGenius Co., Ltd.</span>
+      <a href="https://smartstore.naver.com/egmc/products/6740015690" target="_blank" rel="noopener">스마트스토어</a>
+      <a href="http://pf.kakao.com/_xexlJiM/chat" target="_blank" rel="noopener">카카오톡 채널</a>
+    </div>
+  </div>
+</footer>
+
+<a class="float-kakao" href="http://pf.kakao.com/_xexlJiM/chat" target="_blank" rel="noopener">카카오톡 상담</a>
+
+<nav class="dock">
+  <a class="btn-kakao" href="http://pf.kakao.com/_xexlJiM/chat" target="_blank" rel="noopener">카톡상담</a>
+  <a class="btn-naver" href="https://smartstore.naver.com/egmc/products/6740015690" target="_blank" rel="noopener">구매하기</a>
+  <a style="background:#1F5A22;color:#fff" href="tel:16702584">전화걸기</a>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"주식회사 그린지니어스",
+  "alternateName":"GreenGenius",
+  "url":"https://www.ggenius.kr",
+  "email":"gg@ggenius.kr",
+  "telephone":"+82-1670-2584",
+  "foundingDate":"2023-07-10",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"완산구 전주객사2길 99, 3층",
+    "addressLocality":"전주시",
+    "addressRegion":"전북특별자치도",
+    "addressCountry":"KR"
+  },
+  "description":"농업용 생분해 멀칭필름 이지멀칭을 개발·생산하는 친환경 농자재 기업"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"수확이 끝나면 정말 걷어내지 않아도 되나요?",
+     "acceptedAnswer":{"@type":"Answer","text":"수거하지 않고 트랙터 로터리 작업으로 토양에 섞어 넣으시면 됩니다. 별도의 폐비닐 수거·배출 작업이 필요하지 않습니다."}},
+    {"@type":"Question","name":"기존에 쓰던 피복기로 포설할 수 있나요?",
+     "acceptedAnswer":{"@type":"Answer","text":"기존 멀칭비닐과 같은 방식으로 포설합니다. 별도의 장비가 필요하지 않습니다."}},
+    {"@type":"Question","name":"정부나 지자체 보조금을 받을 수 있나요?",
+     "acceptedAnswer":{"@type":"Answer","text":"친환경 농자재 지원사업은 지자체별로 대상 품목과 지원 비율이 다릅니다. 관할 시·군 농업기술센터 또는 지역 농협에 문의하시면 정확한 안내를 받으실 수 있습니다."}}
+  ]
+}
+</script>
+
+</body>
+</html>
