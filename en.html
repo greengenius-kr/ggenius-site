@@ -96,7 +96,11 @@ img{max-width:100%;height:auto;display:block}
 .hero .eyebrow{color:var(--brand);font-weight:600;font-size:15px}
 .hero h1{font-size:clamp(33px,5.6vw,56px);line-height:1.15;font-weight:700;letter-spacing:-.03em;margin-top:12px;max-width:15ch}
 .hero .lede{margin-top:24px;font-size:clamp(16px,2vw,18.5px);color:var(--soil);max-width:52ch}
-.strata{margin-top:56px}
+.hero-mark{margin-top:60px;display:flex;justify-content:center;align-items:flex-end}
+.hero-mark img{height:78px;width:auto}
+.hero-mark[hidden]{display:none}
+@media(max-width:640px){.hero-mark img{height:54px}}
+.strata{margin-top:14px}
 .strata svg{width:100%;height:auto;display:block}
 
 .band{padding:72px 0;border-top:1px solid var(--hair)}
@@ -228,6 +232,10 @@ img{max-width:100%;height:auto;display:block}
     <div class="cta-row">
       <a class="btn btn-brand" href="mailto:gg@ggenius.kr?subject=Easy%20Mulching%20-%20Export%20Inquiry">Email us about export</a>
       <a class="btn btn-line" href="#product">See the product</a>
+    </div>
+
+    <div class="hero-mark">
+      <img class="hero-logo" src="logo.png" alt="Easy Mulching">
     </div>
 
     <div class="strata" aria-hidden="true">
@@ -555,6 +563,14 @@ img{max-width:100%;height:auto;display:block}
     im.addEventListener('error', swap);
     if (im.complete && im.naturalWidth === 0) swap();
   });
+  var heroLogo = document.querySelector('.hero-logo');
+  if (heroLogo) {
+    heroLogo.addEventListener('error', function(){
+      var box = document.querySelector('.hero-mark');
+      if (box) box.hidden = true;
+    });
+    if (heroLogo.complete && heroLogo.naturalWidth === 0) heroLogo.dispatchEvent(new Event('error'));
+  }
   var vid = document.querySelector('.site-video');
   if (vid) {
     vid.addEventListener('error', function(){

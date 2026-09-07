@@ -107,7 +107,11 @@ img{max-width:100%;height:auto;display:block}
 .hero .eyebrow{color:var(--brand);font-weight:600;font-size:15px}
 .hero h1{font-size:clamp(33px,6vw,58px);line-height:1.22;font-weight:700;letter-spacing:-.035em;margin-top:12px;max-width:16ch}
 .hero .lede{margin-top:24px;font-size:clamp(16px,2vw,18.5px);color:var(--soil);max-width:44ch}
-.strata{margin-top:56px}
+.hero-mark{margin-top:60px;display:flex;justify-content:center;align-items:flex-end}
+.hero-mark img{height:78px;width:auto}
+.hero-mark[hidden]{display:none}
+@media(max-width:640px){.hero-mark img{height:54px}}
+.strata{margin-top:14px}
 .strata svg{width:100%;height:auto;display:block}
 
 /* ── 섹션 ── */
@@ -251,7 +255,7 @@ img{max-width:100%;height:auto;display:block}
 <section class="hero" id="top">
   <div class="wrap">
     <div class="eyebrow">농업용 생분해 멀칭필름</div>
-    <h1>걷어내지 않는 멀칭비닐</h1>
+    <h1>퇴비가 되는 멀칭비닐</h1>
     <p class="lede">
       수확이 끝나면 수거하는 대신 트랙터 로터리 작업으로 그대로 밭을 갈면 됩니다.
       폐비닐 수거와 처리에 드는 시간과 비용을 줄입니다.
@@ -260,6 +264,10 @@ img{max-width:100%;height:auto;display:block}
       <a class="btn btn-naver" href="https://smartstore.naver.com/egmc/products/6740015690" target="_blank" rel="noopener">스마트스토어에서 구매</a>
       <a class="btn btn-kakao" href="http://pf.kakao.com/_xexlJiM/chat" target="_blank" rel="noopener">카카오톡 실시간 상담</a>
       <a class="btn btn-line" href="#product">제품 알아보기</a>
+    </div>
+
+    <div class="hero-mark">
+      <img class="hero-logo" src="logo.png" alt="퇴비가 되는 멀칭비닐 이지멀칭">
     </div>
 
     <div class="strata" aria-hidden="true">
@@ -655,6 +663,14 @@ img{max-width:100%;height:auto;display:block}
     im.addEventListener('error', swap);
     if (im.complete && im.naturalWidth === 0) swap();
   });
+  var heroLogo = document.querySelector('.hero-logo');
+  if (heroLogo) {
+    heroLogo.addEventListener('error', function(){
+      var box = document.querySelector('.hero-mark');
+      if (box) box.hidden = true;
+    });
+    if (heroLogo.complete && heroLogo.naturalWidth === 0) heroLogo.dispatchEvent(new Event('error'));
+  }
   var vid = document.querySelector('.site-video');
   if (vid) {
     vid.addEventListener('error', function(){
