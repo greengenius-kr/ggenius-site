@@ -31,13 +31,13 @@
 <meta property="og:title" content="이지멀칭 | 퇴비가 되는 멀칭비닐">
 <meta property="og:description" content="트랙터 로터리 작업만으로 밭갈이 완료. 농업용 생분해 멀칭필름 이지멀칭.">
 <meta property="og:url" content="https://www.ggenius.kr">
-<meta property="og:image" content="https://www.ggenius.kr/images/og.jpg">
+<meta property="og:image" content="https://www.ggenius.kr/og.jpg">
 <meta name="theme-color" content="#1F5A22">
 <link rel="canonical" href="https://www.ggenius.kr">
 <link rel="alternate" hreflang="ko" href="https://www.ggenius.kr/">
 <link rel="alternate" hreflang="en" href="https://www.ggenius.kr/en.html">
 <link rel="alternate" hreflang="x-default" href="https://www.ggenius.kr/">
-<link rel="icon" href="images/favicon.png">
+<link rel="icon" href="favicon.png">
 
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -144,12 +144,12 @@ img{max-width:100%;height:auto;display:block}
 @media(max-width:640px){.compare{grid-template-columns:1fr}.compare > div + div{border-left:none;border-top:1px solid var(--hair)}}
 
 /* ── 제품 사진 ── */
-.shots{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.shots{margin-top:34px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .shots img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--hair)}
 .shots .ph{width:100%;aspect-ratio:4/3;background:#fff;border:1px dashed var(--hair);display:flex;align-items:center;justify-content:center;color:var(--soil-mid);font-size:14px}
 .shots figcaption{font-size:13.5px;color:var(--soil-mid);margin-top:7px}
 .shots figure{margin:0}
-@media(max-width:700px){.shots{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){.shots{grid-template-columns:1fr 1fr}}
 
 /* ── 특허 ── */
 .patent{margin-top:34px;background:#fff;border:1px solid var(--hair);padding:30px 26px}
@@ -217,9 +217,9 @@ img{max-width:100%;height:auto;display:block}
 <header class="topbar">
   <div class="wrap">
     <a class="brand" href="#top">
-      <!-- 로고 추가 방법: images 폴더에 logo.png 파일을 넣으면 자동으로 바뀝니다.
+      <!-- 로고 추가 방법: logo.png 파일을 올리면 자동으로 바뀝니다.
            파일이 없으면 아래 텍스트 로고가 표시됩니다. -->
-      <img class="brand-logo" src="images/logo.png" alt="이지멀칭 - 퇴비가 되는 멀칭비닐">
+      <img class="brand-logo" src="logo.png" alt="이지멀칭 - 퇴비가 되는 멀칭비닐">
       <span class="brand-txt" hidden>
         <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 2C7 7 4 10 4 14a8 8 0 0 0 16 0c0-4-3-7-8-12z" fill="#1F5A22"/>
@@ -297,7 +297,7 @@ img{max-width:100%;height:auto;display:block}
 
 <!-- ══ [수정4] 홍보 동영상 ══════════════════════════════════════
      방법 A — 파일을 직접 올리기 (쉬움)
-       videos 폴더를 만들어 intro.mp4 파일을 넣으면 자동으로 재생됩니다.
+       intro.mp4 파일을 올리면 자동으로 재생됩니다.
        ※ 파일 크기는 25MB를 넘으면 안 됩니다. 넘으면 방법 B를 쓰세요.
 
      방법 B — 유튜브에 올리기 (용량 제한 없음)
@@ -314,7 +314,7 @@ img{max-width:100%;height:auto;display:block}
     <h2 class="sec-title">이지멀칭 사용 현장</h2>
     <p class="sec-body">포설부터 수확 후 로터리 작업까지, 실제 사용 과정을 영상으로 확인하세요.</p>
     <div class="video-frame">
-      <video class="site-video" src="videos/intro.mp4" controls preload="metadata" playsinline></video>
+      <video class="site-video" src="intro.mp4" controls preload="metadata" playsinline></video>
     </div>
 
     <!-- ══ [수정5] 자유 홍보문구 ══
@@ -361,21 +361,27 @@ img{max-width:100%;height:auto;display:block}
       </div>
     </div>
 
-    <!-- 사진 추가 방법: images 폴더에 아래 파일명 그대로 넣으면 자동으로 표시됩니다.
-         product-1.jpg / product-2.jpg / product-3.jpg
-         파일이 없으면 점선 상자가 대신 표시되며 화면이 깨지지 않습니다. -->
+    <!-- ══ 사진 추가 방법 ══
+         저장소에 아래 이름 그대로 올리면 자동으로 표시됩니다.
+           product-1.jpg  product-2.jpg  product-3.jpg  product-4.jpg
+         파일이 없으면 점선 상자가 대신 표시되어 화면이 깨지지 않습니다.
+         아래 <figcaption> 안의 글자는 사진에 맞게 바꾸세요. -->
     <div class="shots">
       <figure>
-        <img src="images/product-1.jpg" alt="이지멀칭 제품 롤">
-        <figcaption>제품 외관</figcaption>
+        <img src="product-1.jpg" alt="이지멀칭 시공 현장">
+        <figcaption>이지멀칭 시공 현장</figcaption>
       </figure>
       <figure>
-        <img src="images/product-2.jpg" alt="이지멀칭 포설 현장">
-        <figcaption>포설 상태</figcaption>
+        <img src="product-2.jpg" alt="이지멀칭 시공 현장">
+        <figcaption>포설 후 식재</figcaption>
       </figure>
       <figure>
-        <img src="images/product-3.jpg" alt="이지멀칭 분해 진행 상태">
-        <figcaption>분해 진행 상태</figcaption>
+        <img src="product-3.jpg" alt="이지멀칭 시공 현장">
+        <figcaption>생육 중</figcaption>
+      </figure>
+      <figure>
+        <img src="product-4.jpg" alt="이지멀칭 시공 현장">
+        <figcaption>현장 적용 사례</figcaption>
       </figure>
     </div>
 
