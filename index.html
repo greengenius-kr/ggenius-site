@@ -16,13 +16,16 @@
      ║                                                              ║
      ║   [수정1] 검색결과 제목·설명                                   ║
      ║   [수정2] 색상                                                ║
-     ║   [수정3] 첫화면 문구                                          ║
-     ║   [수정4] 홍보 동영상  ← 유튜브 주소만 바꾸면 됨               ║
-     ║   [수정5] 자유 홍보문구 (수시로 바꾸는 칸)                     ║
-     ║   [수정6] 제품 설명                                            ║
-     ║   [수정7] 자주 묻는 질문 (Q&A)                                 ║
-     ║   [수정8] 연락처·링크                                          ║
-     ║   [수정9] 사업자정보                                           ║
+     ║   [수정3] 글씨체 (고딕 ↔ 명조 전환)                            ║
+     ║   [수정4] 첫화면 문구·슬로건                                   ║
+     ║   [수정5] 3단계 설명 (피복·재배·로터리)                        ║
+     ║   [수정6] 증빙 스트립 (특허·인증·생산·연구개발)                ║
+     ║   [수정7] 홍보 동영상  ← 유튜브 주소만 바꾸면 됨               ║
+     ║   [수정8] 자유 홍보문구 (수시로 바꾸는 칸)                     ║
+     ║   [수정9] 제품 설명                                            ║
+     ║   [수정10] 자주 묻는 질문 (Q&A)                                ║
+     ║   [수정11] 연락처·링크                                         ║
+     ║   [수정12] 사업자정보                                          ║
      ║                                                              ║
      ║  ※ [확인필요] 라고 적힌 곳은 아직 값이 비어 있습니다.          ║
      ╚══════════════════════════════════════════════════════════════╝ -->
@@ -33,10 +36,10 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="이지멀칭 | 퇴비가 되는 멀칭비닐">
-<meta property="og:description" content="트랙터 로터리 작업만으로 밭갈이 완료. 농업용 생분해 멀칭필름 이지멀칭.">
+<meta property="og:description" content="수확이 끝나면 수거하는 대신 트랙터 로터리 작업. 그대로 땅속의 퇴비로.">
 <meta property="og:url" content="https://www.ggenius.kr">
 <meta property="og:image" content="https://www.ggenius.kr/og.jpg">
-<meta name="theme-color" content="#1F5A22">
+<meta name="theme-color" content="#1C5426">
 <link rel="canonical" href="https://www.ggenius.kr">
 <link rel="alternate" hreflang="ko" href="https://www.ggenius.kr/">
 <link rel="alternate" hreflang="en" href="https://www.ggenius.kr/en.html">
@@ -44,207 +47,425 @@
 <link rel="icon" href="favicon.png">
 
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Nanum+Myeongjo:wght@700;800&display=swap">
 
 <style>
 /* ══ [수정2] 색상 ══
-   --brand 값 하나만 바꿔도 버튼·강조색이 전부 따라 바뀝니다.
-   현재 값은 이지멀칭 로고의 초록색입니다. */
+   --brand 값 하나만 바꿔도 버튼·강조색이 전부 따라 바뀝니다. */
 :root{
-  --brand:#1F5A22;
-  --brand-lite:#4C8A3E;
-  --paper:#FCFBF7;
-  --ink:#181410;
-  --soil:#3A2E22;
-  --soil-mid:#6E6154;
-  --hair:#DCD6C8;
-  --film:#EDEAE0;
+  color-scheme: light only;
+
+  --brand:#1C5426;        /* 기본 브랜드 초록 */
+  --brand-deep:#123218;   /* 기술 섹션 어두운 배경 */
+  --brand-mid:#2E7A38;
+  --leaf:#7FBF5F;         /* 생장·강조 */
+
+  --paper:#F6F7F3;        /* 페이지 바탕 */
+  --surface:#FFFFFF;
+  --film:#EBEEE5;         /* 옅은 밴드 */
+  --hair:#DDE1D6;         /* 구분선 */
+
+  --ink:#161A15;          /* 본문 검정 */
+  --ink-mid:#4F5749;
+  --ink-dim:#7C8474;
+
+  --soil:#2C2318;         /* 토양 */
+  --clay:#8A6E4B;
+
   --kakao:#FAE100;
   --naver:#03C75A;
-  --maxw:1080px;
+
+  --maxw:1120px;
+  --gut:24px;
+
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,'Malgun Gothic',sans-serif;
+  --myeongjo:'Nanum Myeongjo','Noto Serif KR','Apple SD Gothic Neo',Batang,serif;
+
+  /* ══ [수정3] 글씨체 ══════════════════════════════════════════
+     제목과 슬로건의 글씨체입니다. 아래 두 줄 중 하나만 살리세요.
+     지금은 고딕(굵고 또렷 — 작은 화면·노안에 유리)입니다.
+     명조(붓글씨 느낌)로 바꾸려면 아래 두 줄을 서로 맞바꾸면 됩니다.
+     ═══════════════════════════════════════════════════════ */
+  --display: var(--sans);        /* 고딕  ← 지금 이것이 켜져 있음 */
+  /* --display: var(--myeongjo); */  /* 명조 */
+
+  --shadow-sm:0 1px 2px rgba(22,26,21,.05);
+  --shadow-md:0 2px 4px rgba(22,26,21,.04), 0 12px 28px -16px rgba(22,26,21,.22);
+  --shadow-lg:0 2px 6px rgba(22,26,21,.05), 0 24px 48px -24px rgba(22,26,21,.28);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:82px}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:88px;-webkit-text-size-adjust:100%;overflow-x:hidden}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 body{
-  font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,'Malgun Gothic',sans-serif;
+  font-family:var(--sans);
   background:var(--paper);color:var(--ink);line-height:1.75;
   -webkit-font-smoothing:antialiased;word-break:keep-all;
-  padding-bottom:76px;
 }
+@media(max-width:860px){body{padding-bottom:70px}}
 a{color:inherit}
 img{max-width:100%;height:auto;display:block}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut)}
 
-/* ── 상단바 ── */
-.topbar{position:sticky;top:0;z-index:60;background:rgba(252,251,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--hair)}
-.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:16.5px;letter-spacing:-.02em;text-decoration:none}
-.brand img{height:26px;width:auto}
-.brand-logo{height:44px;width:auto}
-.brand-txt{display:flex;align-items:center;gap:8px;font-size:19px;font-weight:800;letter-spacing:-.03em;color:var(--brand)}
-.brand-txt[hidden]{display:none}
-.topnav{display:flex;gap:24px;font-size:14.5px;color:var(--soil-mid)}
-.topnav a{text-decoration:none}
+.eyebrow{
+  font-family:var(--mono);font-size:12.5px;font-weight:600;
+  letter-spacing:.14em;color:var(--brand-mid);
+  display:flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:'';width:20px;height:1.5px;background:var(--brand-mid);flex:none}
+.band--dark .eyebrow{color:var(--leaf)}
+.band--dark .eyebrow::before{background:var(--leaf)}
+
+/* ── 상단바 : 좌측 회사 로고 / 우측 제품 로고 ── */
+.topbar{
+  position:sticky;top:0;z-index:60;
+  background:rgba(246,247,243,.9);backdrop-filter:saturate(150%) blur(12px);
+  border-bottom:1px solid var(--hair);
+}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:76px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;min-width:0;flex:none}
+.co-logo{height:42px;width:auto;flex:none}
+.co-name{font-size:19px;font-weight:800;letter-spacing:-.035em;color:var(--brand);white-space:nowrap}
+.co-sub{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--ink-dim);display:block;font-weight:500;margin-top:-3px}
+.topnav{display:flex;gap:26px;font-size:15px;font-weight:600;color:var(--ink-mid)}
+.topnav a{text-decoration:none;position:relative;padding:4px 0;transition:color .15s;white-space:nowrap}
+.topnav a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--brand);transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
 .topnav a:hover{color:var(--brand)}
-.topright{display:flex;align-items:center;gap:22px}
-.lang{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;letter-spacing:.02em}
-.lang a{text-decoration:none;color:var(--soil-mid)}
+.topnav a:hover::after{transform:scaleX(1)}
+.topright{display:flex;align-items:center;gap:18px;flex:none}
+.prod-logo{height:44px;width:auto;max-width:200px;object-fit:contain}
+.prod-txt{font-size:17px;font-weight:800;letter-spacing:-.03em;color:var(--brand);white-space:nowrap}
+.lang{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.04em;padding-left:18px;border-left:1px solid var(--hair)}
+.lang a{text-decoration:none;color:var(--ink-dim)}
 .lang a.on{color:var(--brand)}
 .lang a:hover{color:var(--brand)}
-.lang span{color:var(--hair);font-weight:400}
-@media(max-width:860px){.topnav{display:none}}
+.lang span{color:var(--hair)}
+@media(max-width:1060px){.topnav{display:none}}
+@media(max-width:560px){
+  .topbar .wrap{height:66px}
+  .co-logo{height:34px}.co-name{font-size:16px}.co-sub{display:none}
+  .prod-logo{height:34px;max-width:150px}
+  .lang{padding-left:12px;font-size:12px}
+}
+@media(max-width:400px){.co-name{display:none}}
 
 /* ── 버튼 ── */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:13px 24px;border-radius:3px;font-size:15.5px;font-weight:600;text-decoration:none;border:1px solid transparent;transition:filter .15s,background .15s}
-.btn:hover{filter:brightness(.94)}
-.btn:focus-visible{outline:3px solid var(--brand-lite);outline-offset:3px}
-.btn-brand{background:var(--brand);color:#fff}
-.btn-kakao{background:var(--kakao);color:#3C1E1E}
-.btn-naver{background:var(--naver);color:#fff}
-.btn-line{background:transparent;color:var(--soil);border-color:var(--soil)}
-.btn-line:hover{background:var(--film)}
-.cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:16px 28px;border-radius:10px;font-size:16.5px;font-weight:700;letter-spacing:-.015em;
+  text-decoration:none;border:1px solid transparent;cursor:pointer;
+  transition:transform .14s ease, box-shadow .14s ease, background .14s;
+}
+.btn svg{width:19px;height:19px;flex:none}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn:focus-visible{outline:3px solid var(--brand-mid);outline-offset:3px}
+.btn-brand{background:var(--brand);color:#fff;box-shadow:var(--shadow-md)}
+.btn-brand:hover{background:#22642D;box-shadow:var(--shadow-lg)}
+.btn-kakao{background:var(--kakao);color:#3B1E1E;box-shadow:var(--shadow-sm)}
+.btn-kakao:hover{background:#FFEB33;box-shadow:var(--shadow-md)}
+.btn-naver{background:var(--naver);color:#fff;box-shadow:var(--shadow-sm)}
+.btn-naver:hover{background:#05D765;box-shadow:var(--shadow-md)}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--hair)}
+.btn-line:hover{background:var(--surface);border-color:var(--ink-dim)}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.3)}
+.btn-ghost:hover{background:rgba(255,255,255,.16)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+@media(max-width:560px){.cta-row{flex-direction:column;align-items:stretch}.cta-row .btn{width:100%}}
 
-/* ── 히어로 ── */
-.hero{padding:76px 0 0}
-.hero .eyebrow{color:var(--brand);font-weight:600;font-size:15px}
-.hero h1{font-size:clamp(33px,6vw,58px);line-height:1.22;font-weight:700;letter-spacing:-.035em;margin-top:12px;max-width:16ch}
-.hero .lede{margin-top:24px;font-size:clamp(16px,2vw,18.5px);color:var(--soil);max-width:44ch}
-.hero-mark{margin-top:60px;display:flex;justify-content:center;align-items:flex-end}
-.hero-mark img{height:78px;width:auto}
-.hero-mark[hidden]{display:none}
-@media(max-width:640px){.hero-mark img{height:54px}}
-.strata{margin-top:14px}
-.strata svg{width:100%;height:auto;display:block}
+/* ── 히어로 : 밭 사진을 화면 가득 ── */
+.hero{
+  position:relative;isolation:isolate;overflow:hidden;background:#141E13;
+  min-height:clamp(540px,74vh,740px);display:flex;align-items:center;
+}
+.hero-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center 62%;z-index:-2;
+}
+.hero::after{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(100deg, rgba(9,22,11,.95) 0%, rgba(9,22,11,.86) 36%, rgba(9,22,11,.46) 72%, rgba(9,22,11,.26) 100%),
+    linear-gradient(to top, rgba(9,22,11,.6), rgba(9,22,11,0) 48%);
+}
+.hero-inner{width:100%;padding-block:clamp(56px,8vw,92px)}
+.hero .eyebrow{color:var(--leaf)}
+.hero .eyebrow::before{background:var(--leaf)}
+.hero h1{
+  font-family:var(--display);color:#fff;
+  font-size:clamp(33px,5.8vw,60px);line-height:1.15;font-weight:800;
+  letter-spacing:-.045em;margin-top:18px;text-wrap:balance;
+  text-shadow:0 2px 20px rgba(0,0,0,.45);
+}
+.hero h1 em{font-style:normal;color:var(--leaf)}
+.slogan{
+  font-family:var(--display);color:#F2F7EE;
+  margin-top:26px;font-size:clamp(20px,2.7vw,29px);line-height:1.55;
+  font-weight:700;letter-spacing:-.035em;
+  text-shadow:0 2px 16px rgba(0,0,0,.5);
+}
+.slogan .hi{color:var(--leaf)}
+.hero .lede{
+  margin-top:22px;font-size:clamp(16.5px,1.8vw,19px);line-height:1.75;
+  color:#C6D6BE;text-shadow:0 1px 12px rgba(0,0,0,.5);
+}
+@media(max-width:700px){
+  .hero{min-height:0}
+  .hero-img{object-position:center 66%}
+  .hero::after{background:
+    linear-gradient(180deg, rgba(9,22,11,.9) 0%, rgba(9,22,11,.84) 55%, rgba(9,22,11,.9) 100%)}
+}
 
-/* ── 섹션 ── */
-.band{padding:72px 0;border-top:1px solid var(--hair)}
-.band--film{background:var(--film);border-top:none}
-.band--soil{background:var(--soil);color:var(--film);border-top:none}
-.sec-title{font-size:clamp(23px,3.3vw,30px);font-weight:700;letter-spacing:-.03em;line-height:1.35;max-width:24ch}
-.sec-body{margin-top:18px;font-size:16.5px;max-width:58ch;color:var(--soil)}
-.band--soil .sec-body{color:#C9C2B0}
+/* ── 3단계 진행 도해 ── */
+.flow-band{padding:clamp(56px,7vw,88px) 0}
+.flow{margin-top:26px}
+.flow-labels{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--hair)}
+.flow-labels > div{padding:20px 22px 20px 0;border-right:1px solid var(--hair)}
+.flow-labels > div + div{padding-left:22px}
+.flow-labels > div:last-child{border-right:none}
+.flow-step{display:flex;align-items:baseline;gap:12px}
+.flow-step .n{
+  font-family:var(--mono);font-weight:600;color:var(--brand-mid);
+  font-size:clamp(20px,2.4vw,25px);letter-spacing:.02em;
+}
+.flow-step .t{
+  font-size:clamp(20px,2.4vw,25px);font-weight:800;letter-spacing:-.04em;color:var(--ink);
+}
+.flow-labels .d{font-size:16px;color:var(--ink-mid);margin-top:7px;line-height:1.6}
+@media(max-width:760px){
+  .flow-labels{grid-template-columns:1fr;border-top:none}
+  .flow-labels > div,.flow-labels > div + div{border-right:none;border-top:2px solid var(--hair);padding:18px 0}
+}
+.flow-art{margin-top:4px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-md)}
+.flow-art svg{width:100%;height:auto;display:block}
+
+/* ── [수정6] 증빙 스트립 ── */
+.proof{margin-top:clamp(52px,7vw,80px);padding-bottom:clamp(52px,7vw,80px)}
+.proof-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--hair);
+  border:1px solid var(--hair);border-radius:14px;overflow:hidden;
+}
+.proof-grid > div{background:var(--surface);padding:26px 24px 28px}
+.proof .k{font-size:15.5px;font-weight:700;letter-spacing:-.02em;color:var(--ink-mid)}
+.proof .v{font-size:clamp(19px,2vw,21px);font-weight:800;letter-spacing:-.035em;margin-top:10px;line-height:1.35;color:var(--brand)}
+.proof .s{font-size:14.5px;color:var(--ink-mid);margin-top:7px;line-height:1.55}
+@media(max-width:880px){.proof-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.proof-grid{grid-template-columns:1fr}}
+
+/* ── 섹션 골격 ── */
+.band{padding:clamp(60px,8vw,100px) 0}
+.band--film{background:var(--film)}
+.band--dark{background:var(--brand-deep);color:#EDF1E6}
+.band--soil{background:var(--soil);color:#EDEAE0}
+.sec-head{max-width:62ch}
+.sec-title{
+  font-family:var(--display);
+  font-size:clamp(25px,3.6vw,38px);font-weight:800;letter-spacing:-.04em;
+  line-height:1.3;margin-top:16px;text-wrap:balance;
+}
+.sec-body{margin-top:18px;font-size:17px;line-height:1.8;max-width:58ch;color:var(--ink-mid)}
+.band--dark .sec-body{color:#B9C6B0}
+.band--soil .sec-body{color:#CBC3B2}
 
 /* ── 동영상 ── */
-.video-frame{margin-top:34px;position:relative;width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--hair);overflow:hidden}
+.video-frame{
+  margin-top:36px;position:relative;width:100%;aspect-ratio:16/9;
+  background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);
+}
 .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .video-frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
-.video-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--film);color:var(--soil-mid);gap:8px;text-align:center;padding:24px}
-.video-empty strong{font-size:17px;color:var(--soil)}
-.video-empty span{font-size:14px}
+.video-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--surface);color:var(--ink-mid);gap:8px;text-align:center;padding:24px}
+.video-empty strong{font-size:18px;color:var(--ink)}
+.video-empty span{font-size:15px}
 
 /* ── 자유 홍보문구 ── */
-.notice{margin-top:30px;border-left:3px solid var(--brand);background:#fff;padding:20px 22px}
-.notice h3{font-size:16.5px;font-weight:700}
-.notice p{margin-top:7px;font-size:15.5px;color:var(--soil)}
+.notice{
+  margin-top:32px;background:var(--surface);border:1px solid var(--hair);
+  border-left:4px solid var(--brand);border-radius:0 12px 12px 0;padding:24px 26px;box-shadow:var(--shadow-sm);
+}
+.notice h3{font-size:18px;font-weight:800;letter-spacing:-.025em}
+.notice p{margin-top:8px;font-size:16.5px;color:var(--ink-mid)}
 
-/* ── 비교표 ── */
-.compare{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--hair);background:#fff}
-.compare > div{padding:26px 22px}
-.compare > div + div{border-left:1px solid var(--hair)}
-.compare h3{font-size:15px;font-weight:600;color:var(--soil-mid);margin-bottom:12px}
+/* ── 비교 ── */
+.compare{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.compare > div{border-radius:14px;padding:30px 28px 32px}
+.compare .now{background:transparent;border:1px solid var(--hair)}
+.compare .new{background:var(--surface);border:1px solid var(--brand);box-shadow:var(--shadow-md);position:relative}
+.compare .new::before{content:'';position:absolute;left:-1px;right:-1px;top:-1px;height:4px;background:var(--brand);border-radius:14px 14px 0 0}
+.compare h3{font-size:17px;font-weight:800;letter-spacing:-.03em;color:var(--ink-dim);margin-bottom:18px}
 .compare .new h3{color:var(--brand)}
-.compare ul{list-style:none;font-size:15.5px;color:var(--soil)}
-.compare li{padding:7px 0 7px 17px;position:relative}
-.compare li::before{content:'';position:absolute;left:0;top:15px;width:7px;height:1px;background:var(--soil-mid)}
-.compare .new li::before{background:var(--brand)}
-@media(max-width:640px){.compare{grid-template-columns:1fr}.compare > div + div{border-left:none;border-top:1px solid var(--hair)}}
+.compare ul{list-style:none;font-size:16.5px;color:var(--ink-mid);display:flex;flex-direction:column;gap:13px}
+.compare li{padding-left:28px;position:relative;line-height:1.6}
+.compare .now li::before{content:'';position:absolute;left:3px;top:12px;width:13px;height:2px;background:var(--ink-dim)}
+.compare .new li{color:var(--ink);font-weight:500}
+.compare .new li::before{
+  content:'';position:absolute;left:2px;top:7px;width:15px;height:8px;
+  border-left:2.5px solid var(--brand);border-bottom:2.5px solid var(--brand);transform:rotate(-45deg);
+}
+@media(max-width:700px){.compare{grid-template-columns:1fr}}
 
 /* ── 제품 사진 ── */
-.shots{margin-top:34px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.shots img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--hair)}
-.shots .ph{width:100%;aspect-ratio:4/3;background:#fff;border:1px dashed var(--hair);display:flex;align-items:center;justify-content:center;color:var(--soil-mid);font-size:14px}
-.shots figcaption{font-size:13.5px;color:var(--soil-mid);margin-top:7px}
+.shots{margin-top:40px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .shots figure{margin:0}
-@media(max-width:900px){.shots{grid-template-columns:1fr 1fr}}
+.shots img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--hair);border-radius:12px;box-shadow:var(--shadow-sm)}
+.shots .ph{
+  width:100%;aspect-ratio:4/3;background:var(--surface);border:1px dashed var(--hair);border-radius:12px;
+  display:flex;align-items:center;justify-content:center;color:var(--ink-dim);font-size:14px;
+}
+.shots figcaption{font-size:14.5px;color:var(--ink-mid);margin-top:10px}
+@media(max-width:880px){.shots{grid-template-columns:1fr 1fr}}
 
 /* ── 특허 ── */
-.patent{margin-top:34px;background:#fff;border:1px solid var(--hair);padding:30px 26px}
-.patent .no{font-size:14px;color:var(--brand);font-weight:700}
-.patent .name{font-size:18.5px;font-weight:700;margin-top:8px;line-height:1.45;letter-spacing:-.02em}
-.patent .meta{font-size:14.5px;color:var(--soil-mid);margin-top:12px}
+.patent{
+  margin-top:40px;border:1px solid rgba(127,191,95,.28);border-radius:16px;
+  background:rgba(255,255,255,.04);padding:clamp(28px,4vw,40px);
+  display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,44px);align-items:start;
+}
+.patent .seal{
+  width:80px;height:80px;border-radius:50%;flex:none;
+  border:1.5px solid var(--leaf);display:flex;align-items:center;justify-content:center;
+}
+.patent .seal svg{width:40px;height:40px}
+.patent .no{font-family:var(--mono);font-size:14px;font-weight:600;letter-spacing:.05em;color:var(--leaf)}
+.patent .name{font-size:clamp(18px,2.2vw,23px);font-weight:700;margin-top:12px;line-height:1.5;letter-spacing:-.03em;color:#F2F6EE;max-width:40ch}
+.patent .meta{
+  font-family:var(--mono);font-size:13px;color:#A5B69C;margin-top:18px;
+  padding-top:16px;border-top:1px solid rgba(237,241,230,.14);line-height:2;
+}
+@media(max-width:640px){.patent{grid-template-columns:1fr;gap:22px}.patent .seal{width:62px;height:62px}.patent .seal svg{width:31px;height:31px}}
 
-/* ── 인증 카드 ── */
-.certs{margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px}
-.cert{border:1px solid var(--hair);background:#fff;padding:20px}
-.cert .t{font-weight:600;font-size:16px}
-.cert .d{font-size:14px;color:var(--soil-mid);margin-top:5px}
+/* ── 인증 ── */
+.cert-group{margin-top:38px}
+.cert-group + .cert-group{margin-top:40px}
+.cert-group > h3{
+  font-family:var(--mono);font-size:15px;font-weight:600;
+  letter-spacing:.1em;color:var(--brand-mid);
+  padding-bottom:13px;border-bottom:2px solid var(--hair);
+}
+.certs{margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.cert{
+  border:1px solid var(--hair);background:var(--surface);border-radius:12px;padding:24px 24px 26px;
+  transition:transform .15s ease, box-shadow .15s ease, border-color .15s;
+}
+.cert:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--brand)}
+.cert .t{font-weight:800;font-size:17px;letter-spacing:-.03em;line-height:1.45}
+.cert .d{font-family:var(--mono);font-size:12.5px;color:var(--ink-dim);margin-top:9px;letter-spacing:.02em}
+.cert-note{margin-top:24px;font-size:15.5px;color:var(--ink-dim)}
 
 /* ── 연혁 ── */
-.timeline{margin-top:34px;border-top:1px solid var(--hair)}
-.tl-row{display:grid;grid-template-columns:110px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--hair)}
-.tl-row .y{font-weight:700;font-size:16px;color:var(--brand)}
-.tl-row ul{list-style:none;font-size:15.5px;color:var(--soil)}
-.tl-row li{padding:3px 0}
-@media(max-width:560px){.tl-row{grid-template-columns:1fr;gap:6px}}
+.timeline{margin-top:42px}
+.tl-row{display:grid;grid-template-columns:100px 1fr;gap:26px;padding:22px 0;border-top:1px solid var(--hair)}
+.tl-row:last-child{border-bottom:1px solid var(--hair)}
+.tl-row .y{font-family:var(--mono);font-weight:600;font-size:19px;color:var(--brand);letter-spacing:.02em}
+.tl-row ul{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:16.5px;color:var(--ink)}
+.tl-row li{position:relative;padding-left:22px;line-height:1.6}
+.tl-row li::before{content:'';position:absolute;left:0;top:11px;width:7px;height:7px;border-radius:50%;background:var(--leaf)}
+.tl-row li .dt{font-family:var(--mono);font-size:13px;color:var(--ink-dim);margin-left:8px;letter-spacing:.02em}
+@media(max-width:600px){.tl-row{grid-template-columns:1fr;gap:10px}}
 
 /* ── 거점 ── */
-.sites{margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair)}
-.sites > div{background:#fff;padding:24px 20px}
-.sites .role{font-size:13px;color:var(--brand);font-weight:700}
-.sites .name{font-size:18px;font-weight:700;margin-top:5px;letter-spacing:-.02em}
-.sites .addr{font-size:14px;color:var(--soil-mid);margin-top:7px;line-height:1.55}
-@media(max-width:700px){.sites{grid-template-columns:1fr}}
+.sites{
+  margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--hair);border:1px solid var(--hair);border-radius:14px;overflow:hidden;
+}
+.sites > div{background:var(--surface);padding:28px 26px 30px}
+.sites .role{font-size:14.5px;font-weight:700;color:var(--brand-mid);letter-spacing:-.01em}
+.sites .name{font-size:21px;font-weight:800;margin-top:6px;letter-spacing:-.035em}
+.sites .addr{font-size:15px;color:var(--ink-mid);margin-top:9px;line-height:1.65}
+@media(max-width:760px){.sites{grid-template-columns:1fr}}
 
 /* ── FAQ ── */
-.faq{margin-top:30px;border-top:1px solid var(--hair)}
-.faq details{border-bottom:1px solid var(--hair)}
-.faq summary{cursor:pointer;padding:20px 40px 20px 0;font-size:17px;font-weight:600;position:relative;list-style:none}
+.faq{margin-top:34px}
+.faq details{border-top:1px solid var(--hair)}
+.faq details:last-of-type{border-bottom:1px solid var(--hair)}
+.faq summary{
+  cursor:pointer;padding:24px 50px 24px 0;font-size:18px;font-weight:700;
+  letter-spacing:-.03em;position:relative;list-style:none;line-height:1.5;
+}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:'+';position:absolute;right:6px;top:18px;font-size:23px;font-weight:400;color:var(--brand);line-height:1}
-.faq details[open] summary::after{content:'−'}
-.faq summary:focus-visible{outline:3px solid var(--brand-lite);outline-offset:2px}
-.faq .a{padding:0 0 22px;font-size:16px;color:var(--soil);max-width:62ch}
+.faq summary::after{
+  content:'';position:absolute;right:8px;top:32px;width:15px;height:15px;
+  background:
+    linear-gradient(var(--brand),var(--brand)) center/15px 2.2px no-repeat,
+    linear-gradient(var(--brand),var(--brand)) center/2.2px 15px no-repeat;
+  transition:transform .2s ease;
+}
+.faq details[open] summary::after{transform:rotate(90deg);background:linear-gradient(var(--brand),var(--brand)) center/15px 2.2px no-repeat}
+.faq summary:hover{color:var(--brand)}
+.faq summary:focus-visible{outline:3px solid var(--brand-mid);outline-offset:2px;border-radius:4px}
+.faq .a{padding:0 0 26px;font-size:17px;color:var(--ink-mid);max-width:64ch;line-height:1.8}
 
 /* ── 문의 ── */
-.contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:46px;align-items:start}
-@media(max-width:820px){.contact-grid{grid-template-columns:1fr;gap:32px}}
-.ways{list-style:none;font-size:16.5px;margin-top:4px}
-.ways li{padding:14px 0;border-bottom:1px solid rgba(237,234,224,.2)}
-.ways .k{font-size:13.5px;color:#A79C88;display:block;margin-bottom:2px}
-.ways a{color:var(--film);text-decoration:none;border-bottom:1px solid rgba(237,234,224,.35)}
+.contact-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(32px,5vw,64px);align-items:start}
+@media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
+.ways{list-style:none;font-size:17.5px;display:flex;flex-direction:column}
+.ways li{padding:18px 0;border-bottom:1px solid rgba(237,234,224,.16)}
+.ways li:first-child{padding-top:0}
+.ways .k{font-size:14px;font-weight:600;color:#A79C82;display:block;margin-bottom:6px}
+.ways a{color:#F2EFE6;text-decoration:none;border-bottom:1px solid rgba(237,234,224,.32);transition:border-color .15s}
+.ways a:hover{border-color:#F2EFE6}
 
 /* ── 하단 고정 바 (모바일) ── */
-.dock{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;gap:1px;background:var(--hair);border-top:1px solid var(--hair)}
-.dock a{flex:1;display:flex;align-items:center;justify-content:center;padding:16px 4px;font-size:14.5px;font-weight:600;text-decoration:none}
+.dock{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;gap:1px;
+  background:var(--hair);border-top:1px solid var(--hair);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+.dock a{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  padding:11px 4px 12px;font-size:13.5px;font-weight:700;text-decoration:none;letter-spacing:-.02em;
+}
+.dock svg{width:23px;height:23px}
 @media(max-width:860px){.dock{display:flex}}
 
 /* ── PC 우측 카카오 버튼 ── */
-.float-kakao{position:fixed;right:22px;bottom:22px;z-index:70;background:var(--kakao);color:#3C1E1E;padding:14px 20px;border-radius:40px;font-weight:700;font-size:15px;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.18)}
+.float-kakao{
+  position:fixed;right:24px;bottom:24px;z-index:70;background:var(--kakao);color:#3B1E1E;
+  padding:15px 24px;border-radius:999px;font-weight:700;font-size:16px;text-decoration:none;
+  display:flex;align-items:center;gap:9px;
+  box-shadow:0 6px 24px rgba(22,26,21,.22);transition:transform .15s ease,box-shadow .15s ease;
+}
+.float-kakao svg{width:20px;height:20px}
+.float-kakao:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(22,26,21,.28)}
 @media(max-width:860px){.float-kakao{display:none}}
 
 /* ── 푸터 ── */
-.foot{padding:40px 0 34px;font-size:13.5px;color:var(--soil-mid);border-top:1px solid var(--hair)}
-.foot .biz{line-height:1.95}
-.foot .legal{margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
+.foot{padding:48px 0 44px;font-size:14.5px;color:var(--ink-mid);border-top:1px solid var(--hair);background:var(--paper)}
+.foot .biz{line-height:2}
+.foot .legal{margin-top:18px;padding-top:18px;border-top:1px solid var(--hair);display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.foot .legal a{text-decoration:none;color:var(--ink-mid)}
+.foot .legal a:hover{color:var(--brand)}
+.foot .legal .c{font-family:var(--mono);font-size:12.5px;letter-spacing:.03em}
 </style>
 </head>
 <body>
 
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="#top">
-      <!-- 로고 추가 방법: logo.png 파일을 올리면 자동으로 바뀝니다.
-           파일이 없으면 아래 텍스트 로고가 표시됩니다. -->
-      <img class="brand-logo" src="logo.png" alt="이지멀칭 - 퇴비가 되는 멀칭비닐">
-      <span class="brand-txt" hidden>
-        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2C7 7 4 10 4 14a8 8 0 0 0 16 0c0-4-3-7-8-12z" fill="#1F5A22"/>
-          <path d="M12 2C9.5 7 9 10.5 9.5 14.5" stroke="#FCFBF7" stroke-width="1.6" fill="none"/>
-        </svg>
-        이지멀칭
-      </span>
+    <!-- 좌측 : 회사 로고 (그린지니어스) — 이미지가 파일에 내장되어 있어 따로 올릴 필요가 없습니다 -->
+    <a class="brand" href="#top" aria-label="주식회사 그린지니어스 홈">
+      <img class="co-logo" src="data:image/png;base64,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" alt="주식회사 그린지니어스">
+      <span class="co-name">그린지니어스<span class="co-sub">GREENGENIUS</span></span>
     </a>
+
+    <nav class="topnav">
+      <a href="#product">이지멀칭</a>
+      <a href="#tech">기술·특허</a>
+      <a href="#certs">인증</a>
+      <a href="#company">회사</a>
+      <a href="#faq">자주 묻는 질문</a>
+      <a href="#contact">문의·구매</a>
+    </nav>
+
+    <!-- 우측 : 제품 로고 (이지멀칭) — logo.png 파일을 올리면 표시됩니다 -->
     <div class="topright">
-      <nav class="topnav">
-        <a href="#product">이지멀칭</a>
-        <a href="#tech">기술·특허</a>
-        <a href="#certs">인증</a>
-        <a href="#company">회사</a>
-        <a href="#faq">자주 묻는 질문</a>
-        <a href="#contact">문의·구매</a>
-      </nav>
+      <img class="prod-logo" src="logo.png" alt="이지멀칭">
+      <span class="prod-txt" hidden>이지멀칭</span>
       <!-- ══ 언어 전환 ══ 영문 페이지는 en.html 파일입니다 -->
       <div class="lang">
         <a class="on" href="index.html">KR</a>
@@ -255,59 +476,252 @@ img{max-width:100%;height:auto;display:block}
   </div>
 </header>
 
-<!-- ══ [수정3] 첫화면 문구 ══ -->
+<!-- ══ [수정4] 첫화면 문구·슬로건 ══
+     줄을 바꾸고 싶은 자리에 <br> 를 넣으면 됩니다. -->
 <section class="hero" id="top">
-  <div class="wrap">
-    <div class="eyebrow">농업용 생분해 멀칭필름</div>
-    <h1>퇴비가 되는 멀칭비닐</h1>
-    <p class="lede">
-      수확이 끝나면 수거하는 대신 트랙터 로터리 작업으로 그대로 밭을 갈면 됩니다.
-      폐비닐 수거와 처리에 드는 시간과 비용을 줄입니다.
-    </p>
-    <div class="cta-row">
-      <a class="btn btn-naver" href="https://smartstore.naver.com/egmc/products/6740015690" target="_blank" rel="noopener">스마트스토어에서 구매</a>
-      <a class="btn btn-kakao" href="http://pf.kakao.com/_xexlJiM/chat" target="_blank" rel="noopener">카카오톡 실시간 상담</a>
-      <a class="btn btn-line" href="#product">제품 알아보기</a>
-    </div>
+  <!-- 배경 사진 : hero.jpg 파일을 바꾸면 첫 화면 배경이 바뀝니다 -->
+  <img class="hero-img" src="hero.jpg" alt="이지멀칭을 피복한 밭">
+  <div class="hero-inner">
+    <div class="wrap">
+      <div class="eyebrow">농업용 생분해 멀칭필름</div>
+      <h1>퇴비가 되는 <em>멀칭비닐</em></h1>
 
-    <div class="hero-mark">
-      <img class="hero-logo" src="logo.png" alt="퇴비가 되는 멀칭비닐 이지멀칭">
-    </div>
+      <p class="slogan">
+        수확이 끝나면<br>
+        수거하는 대신 <span class="hi">트랙터 로터리 작업!</span><br>
+        그대로 <span class="hi">땅속의 퇴비로!</span>
+      </p>
 
-    <div class="strata" aria-hidden="true">
-      <svg viewBox="0 0 1080 240" xmlns="http://www.w3.org/2000/svg">
-        <rect x="0" y="0" width="1080" height="88" fill="#FCFBF7"/>
-        <g fill="#1F5A22">
-          <path d="M178 74c0-9 7-14 15-14 0 9-6 14-15 14z"/>
-          <path d="M420 74c0-10 8-16 17-16 0 10-7 16-17 16z"/>
-          <path d="M900 74c0-10 8-16 17-16 0 10-7 16-17 16z"/>
-        </g>
-        <g fill="#4C8A3E"><path d="M660 78c0-9 7-14 15-14 0 9-6 14-15 14z"/></g>
-        <g stroke="#1F5A22" stroke-width="2" fill="none">
-          <path d="M178 88V70"/><path d="M420 88V62"/><path d="M660 88V72"/><path d="M900 88V64"/>
-        </g>
-        <rect x="0" y="88" width="1080" height="15" fill="#2B2B2B"/>
-        <rect x="0" y="103" width="1080" height="56" fill="#6E6154"/>
-        <rect x="0" y="159" width="1080" height="81" fill="#3A2E22"/>
-        <g fill="#8B7A63" opacity=".5">
-          <circle cx="92" cy="124" r="3"/><circle cx="243" cy="140" r="2.2"/><circle cx="366" cy="120" r="2.6"/>
-          <circle cx="512" cy="143" r="3"/><circle cx="641" cy="126" r="2.2"/><circle cx="792" cy="141" r="2.8"/>
-          <circle cx="931" cy="122" r="2.4"/><circle cx="1031" cy="137" r="2.6"/>
-        </g>
-        <g fill="#584936" opacity=".75">
-          <circle cx="152" cy="192" r="3.2"/><circle cx="332" cy="214" r="2.6"/><circle cx="562" cy="186" r="3"/>
-          <circle cx="722" cy="218" r="2.4"/><circle cx="882" cy="194" r="3"/><circle cx="1012" cy="212" r="2.6"/>
-        </g>
-        <g stroke="#4C8A3E" stroke-width="1.4" fill="none" opacity=".8">
-          <path d="M420 103v46M420 122l-16 14M420 134l18 16"/>
-          <path d="M900 103v40M900 119l14 12"/>
-        </g>
-      </svg>
+      <p class="lede">
+        폐비닐 수거와 처리에 드는<br>
+        시간과 비용을 줄입니다.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn-naver" href="https://smartstore.naver.com/egmc/products/6740015690" target="_blank" rel="noopener">스마트스토어에서 구매</a>
+        <a class="btn btn-kakao" href="http://pf.kakao.com/_xexlJiM/chat" target="_blank" rel="noopener">카카오톡 실시간 상담</a>
+        <a class="btn btn-ghost" href="#product">제품 알아보기</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══ [수정4] 홍보 동영상 ══════════════════════════════════════
+<!-- ══ [수정5] 3단계 설명 ══ -->
+<section class="flow-band">
+  <div class="wrap">
+    <div class="eyebrow">이렇게 쓰십니다</div>
+    <div class="flow">
+      <div class="flow-labels">
+        <div>
+          <div class="flow-step"><span class="n">01</span><span class="t">피복</span></div>
+          <div class="d">쓰시던 피복기로 그대로 씌웁니다</div>
+        </div>
+        <div>
+          <div class="flow-step"><span class="n">02</span><span class="t">재배</span></div>
+          <div class="d">수확할 때까지 멀칭 그대로 버팁니다</div>
+        </div>
+        <div>
+          <div class="flow-step"><span class="n">03</span><span class="t">로터리</span></div>
+          <div class="d">걷어내지 않고 그대로 갈아엎습니다</div>
+        </div>
+      </div>
+
+      <div class="flow-art" aria-hidden="true">
+        <svg viewBox="0 0 1200 350" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#EFF3E9"/>
+              <stop offset="100%" stop-color="#E0E9D5"/>
+            </linearGradient>
+            <linearGradient id="earth" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#7C6A4C"/>
+              <stop offset="45%" stop-color="#4A3C2A"/>
+              <stop offset="100%" stop-color="#292116"/>
+            </linearGradient>
+            <linearGradient id="bed" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#8B7756"/>
+              <stop offset="100%" stop-color="#6B5A41"/>
+            </linearGradient>
+            <linearGradient id="sheet" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="100%" stop-color="#DCE2D2"/>
+            </linearGradient>
+          </defs>
+
+          <rect x="0" y="0" width="1200" height="196" fill="url(#sky)"/>
+          <rect x="0" y="196" width="1200" height="154" fill="url(#earth)"/>
+          <rect x="0" y="194" width="1200" height="3" fill="#3B3020"/>
+
+          <!-- 구간 구분 -->
+          <g stroke="#FFFFFF" stroke-width="1.2" opacity=".3" stroke-dasharray="4 8">
+            <path d="M400 0V350"/><path d="M800 0V350"/>
+          </g>
+
+          <!-- ═══ 01 · 피복 ═══ -->
+          <g>
+            <path d="M42 196 C 74 150, 328 150, 360 196 Z" fill="url(#bed)"/>
+            <path d="M42 196 C 70 154, 130 144, 183 142" fill="none" stroke="url(#sheet)" stroke-width="11" stroke-linecap="round"/>
+            <path d="M219 142 C 272 144, 332 154, 360 196" fill="none" stroke="url(#sheet)" stroke-width="11" stroke-linecap="round"/>
+            <!-- 필름 고정 흙 -->
+            <path d="M30 196h26l-8-16z" fill="#5A4A34"/>
+            <path d="M372 196h-26l8-16z" fill="#5A4A34"/>
+            <!-- 어린 모종 -->
+            <path d="M201 143 V 104" stroke="#3F7F34" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M201 124c-16-3-26-14-26-25 14 0 26 10 26 21z" fill="#5FA548"/>
+            <path d="M201 114c17-4 27-15 27-26-14 0-27 11-27 22z" fill="#7FBF5F"/>
+            <g stroke="#6E5C43" stroke-width="2" fill="none" opacity=".75">
+              <path d="M201 152v46"/><path d="M201 172l-20 20"/><path d="M201 182l22 18"/>
+            </g>
+          </g>
+
+          <!-- ═══ 02 · 재배 ═══ -->
+          <g>
+            <path d="M432 196 C 464 150, 718 150, 750 196 Z" fill="url(#bed)"/>
+            <path d="M432 196 C 460 154, 520 144, 573 142" fill="none" stroke="url(#sheet)" stroke-width="11" stroke-linecap="round"/>
+            <path d="M609 142 C 662 144, 722 154, 750 196" fill="none" stroke="url(#sheet)" stroke-width="11" stroke-linecap="round"/>
+            <path d="M420 196h26l-8-16z" fill="#5A4A34"/>
+            <path d="M762 196h-26l8-16z" fill="#5A4A34"/>
+            <!-- 다 자란 작물 -->
+            <path d="M591 143 V 40" stroke="#3B7730" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <path d="M591 126c-24-5-38-22-38-38 21 0 38 15 38 31z" fill="#4E8F3E"/>
+            <path d="M591 112c25-6 40-23 40-40-22 0-40 16-40 33z" fill="#7FBF5F"/>
+            <path d="M591 82c-20-5-32-19-32-33 18 0 32 13 32 28z" fill="#5FA548"/>
+            <path d="M591 66c19-5 31-18 31-32-17 0-31 13-31 28z" fill="#8ECC6E"/>
+            <ellipse cx="591" cy="38" rx="8" ry="9" fill="#9AD67A"/>
+            <!-- 열매 -->
+            <circle cx="558" cy="104" r="11" fill="#C9502F"/>
+            <circle cx="628" cy="92" r="9.5" fill="#D65F38"/>
+            <g stroke="#6E5C43" stroke-width="2.2" fill="none" opacity=".8">
+              <path d="M591 152v62"/><path d="M591 172l-26 26"/><path d="M591 186l28 24"/><path d="M591 204l-18 20"/>
+            </g>
+          </g>
+
+          <!-- ═══ 03 · 로터리 ═══ -->
+          <g>
+            <!-- 갈아엎은 흙 결 -->
+            <g stroke="#6E5C43" stroke-width="2.4" fill="none" opacity=".5">
+              <path d="M812 216q24-16 48 0t48 0 48 0 48 0 48 0 48 0 48 0 48 0"/>
+              <path d="M812 248q24-16 48 0t48 0 48 0 48 0 48 0 48 0 48 0 48 0"/>
+            </g>
+
+            <!-- 튀는 흙 -->
+            <g fill="#8B7756" opacity=".6">
+              <circle cx="838" cy="168" r="5"/><circle cx="820" cy="148" r="3.6"/>
+              <circle cx="856" cy="140" r="3"/><circle cx="812" cy="180" r="3.4"/>
+            </g>
+
+            <!-- 로터리 경운기 -->
+            <g transform="translate(-52,0) translate(940,196) scale(1.12) translate(-940,-196)">
+              <!-- 로터리 작업기 -->
+              <rect x="836" y="146" width="66" height="38" rx="5" fill="#123218"/>
+              <rect x="840" y="182" width="58" height="10" rx="3" fill="#0C230F"/>
+              <g stroke="#0C230F" stroke-width="4" stroke-linecap="round">
+                <path d="M848 192v12"/><path d="M861 192v15"/><path d="M874 192v12"/>
+                <path d="M887 192v15"/><path d="M896 192v11"/>
+              </g>
+              <!-- 파헤쳐진 흙 튐 -->
+              <g fill="#8B7756" opacity=".75">
+                <circle cx="828" cy="176" r="6"/><circle cx="816" cy="158" r="4.4"/>
+                <circle cx="832" cy="142" r="3.4"/><circle cx="806" cy="186" r="4"/>
+                <circle cx="846" cy="128" r="2.8"/>
+              </g>
+              <!-- 차체 -->
+              <path d="M896 150h118v30H896z" fill="#1C5426"/>
+              <path d="M1002 128h30c8 0 14 6 14 14v24h-44z" fill="#22642D"/>
+              <!-- 운전실 -->
+              <path d="M906 92h56v58h-56z" fill="#1C5426"/>
+              <path d="M912 100h44v32h-44z" fill="#C3D9C6" opacity=".85"/>
+              <rect x="898" y="84" width="74" height="9" rx="4" fill="#123218"/>
+              <rect x="902" y="88" width="6" height="8" fill="#123218"/>
+              <rect x="962" y="88" width="6" height="8" fill="#123218"/>
+              <!-- 배기관 -->
+              <rect x="978" y="96" width="9" height="36" rx="3" fill="#123218"/>
+              <!-- 매연 -->
+              <g fill="#B9C6B0" opacity=".55">
+                <circle cx="983" cy="84" r="7"/><circle cx="992" cy="68" r="5.5"/><circle cx="999" cy="55" r="4"/>
+              </g>
+              <!-- 뒷바퀴 -->
+              <circle cx="932" cy="164" r="32" fill="#241C13"/>
+              <circle cx="932" cy="164" r="32" fill="none" stroke="#3B3020" stroke-width="5"/>
+              <circle cx="932" cy="164" r="13" fill="#8B7756"/>
+              <circle cx="932" cy="164" r="5" fill="#4A3C2A"/>
+              <g stroke="#3B3020" stroke-width="3.4" opacity=".9">
+                <path d="M910 142l-3-3"/><path d="M954 142l3-3"/><path d="M910 186l-3 3"/><path d="M954 186l3 3"/>
+              </g>
+              <!-- 앞바퀴 -->
+              <circle cx="1024" cy="176" r="20" fill="#241C13"/>
+              <circle cx="1024" cy="176" r="20" fill="none" stroke="#3B3020" stroke-width="4"/>
+              <circle cx="1024" cy="176" r="8" fill="#8B7756"/>
+            </g>
+
+            <!-- 흙에 섞여 들어간 필름 : 왼쪽은 큰 조각, 오른쪽으로 갈수록 잘게 분해 -->
+            <g fill="#F2F5EA" opacity=".92">
+              <rect x="1002" y="212" width="42" height="7" rx="3.5" transform="rotate(-14 1002 212)"/>
+              <rect x="1058" y="244" width="34" height="6.5" rx="3" transform="rotate(11 1058 244)"/>
+              <rect x="1014" y="276" width="28" height="6" rx="3" transform="rotate(-6 1014 276)"/>
+              <rect x="1096" y="206" width="30" height="6" rx="3" transform="rotate(17 1096 206)"/>
+              <rect x="1116" y="268" width="22" height="5.4" rx="2.7" transform="rotate(-9 1116 268)"/>
+              <rect x="1042" y="312" width="19" height="5" rx="2.5" transform="rotate(7 1042 312)"/>
+              <rect x="1160" y="232" width="18" height="4.8" rx="2.4" transform="rotate(13 1160 232)"/>
+              <rect x="1152" y="300" width="14" height="4.2" rx="2.1" transform="rotate(-12 1152 300)"/>
+            </g>
+            <g fill="#DCE2CE" opacity=".6">
+              <circle cx="1108" cy="322" r="3.4"/><circle cx="1174" cy="284" r="2.8"/>
+              <circle cx="1186" cy="326" r="3"/><circle cx="1082" cy="290" r="2.6"/>
+              <circle cx="1142" cy="336" r="2.4"/><circle cx="1196" cy="256" r="2.4"/>
+            </g>
+
+            <!-- 다음 작기 새싹 -->
+            <path d="M1124 194 V 166" stroke="#3F7F34" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+            <path d="M1124 180c-14-3-23-12-23-22 12 0 23 9 23 19z" fill="#5FA548"/>
+            <path d="M1124 172c15-4 24-13 24-23-12 0-24 10-24 20z" fill="#7FBF5F"/>
+          </g>
+
+          <!-- 토양 유기물 -->
+          <g fill="#8B7756" opacity=".35">
+            <circle cx="96" cy="250" r="3.4"/><circle cx="264" cy="284" r="2.8"/><circle cx="344" cy="228" r="3"/>
+            <circle cx="480" cy="268" r="3.2"/><circle cx="706" cy="240" r="2.8"/><circle cx="756" cy="300" r="3"/>
+            <circle cx="152" cy="310" r="3"/><circle cx="524" cy="316" r="2.8"/><circle cx="676" cy="326" r="2.6"/>
+          </g>
+          <g fill="#241C13" opacity=".45">
+            <circle cx="196" cy="326" r="3.6"/><circle cx="436" cy="334" r="3"/><circle cx="880" cy="330" r="3.4"/>
+            <circle cx="336" cy="296" r="2.8"/><circle cx="620" cy="292" r="3"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ [수정6] 증빙 스트립 — 첫 화면에서 회사 신뢰도를 보여주는 칸 ══ -->
+<section class="proof">
+  <div class="wrap">
+    <div class="proof-grid">
+      <div>
+        <div class="k">특허</div>
+        <div class="v">제10-2951538호</div>
+        <div class="s">생분해 멀칭 시스템 · 2026 등록</div>
+      </div>
+      <div>
+        <div class="k">인증</div>
+        <div class="v">벤처기업 · 그린바이오</div>
+        <div class="s">2025년 취득</div>
+      </div>
+      <div>
+        <div class="k">생산</div>
+        <div class="v">자체 생산 R&amp;D</div>
+        <div class="s">공장 직접 운영</div>
+      </div>
+      <div>
+        <div class="k">연구개발</div>
+        <div class="v">기업부설연구소</div>
+        <div class="s">전주 · 강동 · 파주 3개 거점</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ [수정7] 홍보 동영상 ══════════════════════════════════════
      방법 A — 파일을 직접 올리기 (쉬움)
        intro.mp4 파일을 올리면 자동으로 재생됩니다.
        ※ 파일 크기는 25MB를 넘으면 안 됩니다. 넘으면 방법 B를 쓰세요.
@@ -321,15 +735,18 @@ img{max-width:100%;height:auto;display:block}
 
      <iframe src="https://www.youtube.com/embed/ABC123xyz" title="이지멀칭 소개 영상" allowfullscreen loading="lazy"></iframe>
      ══════════════════════════════════════════════════════════ -->
-<section class="band" id="video">
+<section class="band band--film" id="video">
   <div class="wrap">
-    <h2 class="sec-title">이지멀칭 사용 현장</h2>
-    <p class="sec-body">피복부터 수확 후 로터리 작업까지, 실제 사용 과정을 영상으로 확인하세요.</p>
+    <div class="sec-head">
+      <div class="eyebrow">사용 현장</div>
+      <h2 class="sec-title">피복부터 로터리 작업까지</h2>
+      <p class="sec-body">실제 밭에서 이지멀칭을 씌우고, 재배하고, 수확 후 갈아엎는 과정을 영상으로 확인하세요.</p>
+    </div>
     <div class="video-frame">
       <video class="site-video" src="intro.mp4" controls preload="metadata" playsinline></video>
     </div>
 
-    <!-- ══ [수정5] 자유 홍보문구 ══
+    <!-- ══ [수정8] 자유 홍보문구 ══
          행사, 보조금 공고, 신제품 소식 등을 수시로 바꿔 넣는 칸입니다.
          쓸 내용이 생기면 아래 4줄 앞뒤의 주석 표시(<!-- 와 -- >)를 지워서 살리세요.
 
@@ -343,14 +760,17 @@ img{max-width:100%;height:auto;display:block}
   </div>
 </section>
 
-<!-- ══ [수정6] 제품 설명 ══ -->
-<section class="band band--film" id="product">
+<!-- ══ [수정9] 제품 설명 ══ -->
+<section class="band" id="product">
   <div class="wrap">
-    <h2 class="sec-title">이지멀칭</h2>
-    <p class="sec-body">
-      토양에서 분해되도록 설계한 농업용 멀칭필름입니다.
-      기존 멀칭비닐과 같은 방식으로 피복하되, 수확 후 걷어내 처리하는 과정을 줄이는 것이 목적입니다.
-    </p>
+    <div class="sec-head">
+      <div class="eyebrow">제품</div>
+      <h2 class="sec-title">이지멀칭</h2>
+      <p class="sec-body">
+        토양에서 분해되도록 설계한 농업용 멀칭필름입니다.
+        기존 멀칭비닐과 같은 방식으로 피복하되, 수확 후 걷어내 처리하는 과정을 줄이는 것이 목적입니다.
+      </p>
+    </div>
 
     <div class="compare">
       <div class="now">
@@ -376,23 +796,22 @@ img{max-width:100%;height:auto;display:block}
     <!-- ══ 사진 추가 방법 ══
          저장소에 아래 이름 그대로 올리면 자동으로 표시됩니다.
            product-1.jpg  product-2.jpg  product-3.jpg  product-4.jpg
-         파일이 없으면 점선 상자가 대신 표시되어 화면이 깨지지 않습니다.
-         아래 <figcaption> 안의 글자는 사진에 맞게 바꾸세요. -->
+         파일이 없으면 점선 상자가 대신 표시되어 화면이 깨지지 않습니다. -->
     <div class="shots">
       <figure>
-        <img src="product-1.jpg" alt="이지멀칭 시공 현장">
+        <img src="product-1.jpg" alt="이지멀칭 시공 현장" loading="lazy">
         <figcaption>이지멀칭 시공 현장</figcaption>
       </figure>
       <figure>
-        <img src="product-2.jpg" alt="이지멀칭 시공 현장">
+        <img src="product-2.jpg" alt="이지멀칭 피복 후 식재" loading="lazy">
         <figcaption>피복 후 식재</figcaption>
       </figure>
       <figure>
-        <img src="product-3.jpg" alt="이지멀칭 시공 현장">
+        <img src="product-3.jpg" alt="이지멀칭 적용 밭의 생육 상태" loading="lazy">
         <figcaption>생육 중</figcaption>
       </figure>
       <figure>
-        <img src="product-4.jpg" alt="이지멀칭 시공 현장">
+        <img src="product-4.jpg" alt="이지멀칭 현장 적용 사례" loading="lazy">
         <figcaption>현장 적용 사례</figcaption>
       </figure>
     </div>
@@ -405,76 +824,109 @@ img{max-width:100%;height:auto;display:block}
 </section>
 
 <!-- ══ 기술·특허 ══ -->
-<section class="band" id="tech">
+<section class="band band--dark" id="tech">
   <div class="wrap">
-    <h2 class="sec-title">보유 기술</h2>
-    <p class="sec-body">
-      감귤 부산물에서 얻은 소재를 활용해 토양 병원균 억제 기능을 결합한 멀칭 시스템으로 특허를 등록했습니다.
-    </p>
+    <div class="sec-head">
+      <div class="eyebrow">보유 기술</div>
+      <h2 class="sec-title" style="color:#F2F6EE">감귤 부산물을 소재로 쓴다</h2>
+      <p class="sec-body">
+        버려지는 감귤 부산물에서 얻은 박테리아 셀룰로오스와 정유를 필름에 넣었습니다.
+        필름이 분해되는 속도에 맞춰 정유가 토양으로 방출되도록 설계해,
+        멀칭 기능과 토양 병원균 억제 기능을 하나로 묶었습니다.
+      </p>
+    </div>
+
     <div class="patent">
-      <div class="no">특허 제10-2951538호</div>
-      <div class="name">감귤 부산물 유래 박테리아 셀룰로오스 및 정유의 분해 연동 방출을 이용한 토양 병원균 억제용 생분해 멀칭 시스템</div>
-      <div class="meta">출원 2026.01.07 · 등록 2026.04.07 · 특허권자 주식회사 그린지니어스</div>
+      <div class="seal" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#7FBF5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2l7 3.5v6c0 4.5-3 8.2-7 10.5-4-2.3-7-6-7-10.5v-6z"/>
+          <path d="M9 11.5l2 2 4-4.5"/>
+        </svg>
+      </div>
+      <div>
+        <div class="no">특허 제10-2951538호</div>
+        <div class="name">감귤 부산물 유래 박테리아 셀룰로오스 및 정유의 분해 연동 방출을 이용한 토양 병원균 억제용 생분해 멀칭 시스템</div>
+        <div class="meta">
+          출원 2026.01.07 &nbsp;·&nbsp; 등록 2026.04.07<br>
+          특허권자 주식회사 그린지니어스
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ══ 인증 및 지식재산 ══ -->
-<section class="band band--film" id="certs">
+<section class="band" id="certs">
   <div class="wrap">
-    <h2 class="sec-title">인증 및 지식재산</h2>
-    <p class="sec-body">아래 인증서·등록증 사본은 요청하시면 보내드립니다.</p>
-    <div class="certs">
-      <div class="cert"><div class="t">벤처기업 확인</div><div class="d">2025.07 취득</div></div>
-      <div class="cert"><div class="t">그린바이오기업 인정</div><div class="d">2025.08 취득</div></div>
-      <div class="cert"><div class="t">기업부설연구소 인정</div><div class="d">2025.09 취득</div></div>
-      <div class="cert"><div class="t">공장등록증명서</div><div class="d">2025.12 · 경기도 파주</div></div>
-      <div class="cert"><div class="t">상표등록 제40-2192943호</div><div class="d">이지멀칭 · 제17류 · 2024.05 등록</div></div>
-      <div class="cert"><div class="t">특허 제10-2951538호</div><div class="d">생분해 멀칭 시스템 · 2026.04 등록</div></div>
+    <div class="sec-head">
+      <div class="eyebrow">인증 · 지식재산</div>
+      <h2 class="sec-title">검증된 자격으로 공급합니다</h2>
     </div>
+
+    <div class="cert-group">
+      <h3>Certifications</h3>
+      <div class="certs">
+        <div class="cert"><div class="t">벤처기업 확인</div><div class="d">2025.07 취득</div></div>
+        <div class="cert"><div class="t">그린바이오기업 인정</div><div class="d">2025.08 취득</div></div>
+        <div class="cert"><div class="t">기업부설연구소 인정</div><div class="d">2025.09 취득</div></div>
+        <div class="cert"><div class="t">공장등록증명서</div><div class="d">2025.12 · 경기도 파주</div></div>
+      </div>
+    </div>
+
+    <div class="cert-group">
+      <h3>Intellectual Properties</h3>
+      <div class="certs">
+        <div class="cert"><div class="t">특허 제10-2951538호</div><div class="d">생분해 멀칭 시스템 · 2026.04 등록</div></div>
+        <div class="cert"><div class="t">상표등록 제40-2192943호</div><div class="d">이지멀칭 · 제17류 · 2024.05 등록</div></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- ══ 회사 ══ -->
-<section class="band" id="company">
+<section class="band band--film" id="company">
   <div class="wrap">
-    <h2 class="sec-title">주식회사 그린지니어스</h2>
-    <p class="sec-body">
-      정부 그린바이오기업 인정을 받은 소재 기업입니다.
-      기업부설연구소에서 생분해 바이오 소재를 연구하고, 이를 농업 현장에 적용한 제품을 개발합니다.
-      2025년 직접 생산 체계를 갖췄습니다.
-    </p>
+    <div class="sec-head">
+      <div class="eyebrow">회사 소개</div>
+      <h2 class="sec-title">주식회사 그린지니어스</h2>
+      <p class="sec-body">
+        생분해 바이오 소재를 연구하고 직접 생산하는 소재 기업입니다.
+        기업부설연구소에서 소재를 개발하고, 이를 농업 현장에 쓸 수 있는 제품으로 만듭니다.
+        2025년에는 자체 생산 체계를 갖춰 개발부터 생산까지 직접 하고 있습니다.
+      </p>
+    </div>
 
     <div class="timeline">
       <div class="tl-row">
         <div class="y">2023</div>
-        <ul><li>법인 설립 (07.10)</li></ul>
+        <ul><li>법인 설립<span class="dt">07.10</span></li></ul>
       </div>
       <div class="tl-row">
         <div class="y">2024</div>
         <ul>
-          <li>이지멀칭 상표등록 (05.09)</li>
-          <li>동성케미컬 MOU — 바이오플라스틱 공동개발 (04.15)</li>
-          <li>(주)오더스 MOU — 생분해 농자재 공동개발 (05.28)</li>
+          <li>동성케미컬 MOU — 바이오플라스틱 공동개발<span class="dt">04.15</span></li>
+          <li>이지멀칭 상표등록<span class="dt">05.09</span></li>
+          <li>(주)오더스 MOU — 생분해 농자재 공동개발<span class="dt">05.28</span></li>
         </ul>
       </div>
       <div class="tl-row">
         <div class="y">2025</div>
         <ul>
-          <li>본점 이전 — 전북특별자치도 전주시 (04.18)</li>
-          <li>벤처기업 확인 (07.02)</li>
-          <li>그린바이오기업 인정 (08.06)</li>
-          <li>기업부설연구소 인정 (09.03)</li>
-          <li>파주지점 설치 (10.16)</li>
-          <li>직접 생산 체계 구축 (12.17)</li>
-          <li>중소벤처기업부 공동협업형 주관기업 선정 (12.20)</li>
+          <li>본점 이전 — 전북특별자치도 전주시<span class="dt">04.18</span></li>
+          <li>벤처기업 확인<span class="dt">07.02</span></li>
+          <li>그린바이오기업 인정<span class="dt">08.06</span></li>
+          <li>기업부설연구소 인정<span class="dt">09.03</span></li>
+          <li>파주지점 설치<span class="dt">10.16</span></li>
+          <li>직접 생산 체계 구축<span class="dt">12.17</span></li>
+          <li>중소벤처기업부 공동협업형 주관기업 선정<span class="dt">12.20</span></li>
         </ul>
       </div>
       <div class="tl-row">
         <div class="y">2026</div>
         <ul>
-          <li>생분해 멀칭 시스템 특허 등록 (04.07)</li>
-          <li>강동 연구소 확장 이전 (08.25)</li>
+          <li>생분해 멀칭 시스템 특허 등록<span class="dt">04.07</span></li>
+          <li>강동 연구소 확장 이전<span class="dt">08.25</span></li>
         </ul>
       </div>
     </div>
@@ -499,15 +951,18 @@ img{max-width:100%;height:auto;display:block}
   </div>
 </section>
 
-<!-- ══ [수정7] 자주 묻는 질문 ══════════════════════════════════
+<!-- ══ [수정10] 자주 묻는 질문 ══════════════════════════════════
      질문을 추가하려면 아래 <details> 부터 </details> 까지 한 묶음을
      통째로 복사해서 붙여넣고 질문과 답변만 바꾸세요.
      ※ 페이지 맨 아래 FAQPage 스크립트에도 같은 질문을 추가하면
        구글 검색결과에 질문이 함께 표시됩니다.
      ══════════════════════════════════════════════════════════ -->
-<section class="band band--film" id="faq">
+<section class="band" id="faq">
   <div class="wrap">
-    <h2 class="sec-title">자주 묻는 질문</h2>
+    <div class="sec-head">
+      <div class="eyebrow">자주 묻는 질문</div>
+      <h2 class="sec-title">궁금한 점을 먼저 확인하세요</h2>
+    </div>
     <div class="faq">
 
       <details>
@@ -553,19 +1008,20 @@ img{max-width:100%;height:auto;display:block}
   </div>
 </section>
 
-<!-- ══ [수정8] 연락처·링크 ══ -->
+<!-- ══ [수정11] 연락처·링크 ══ -->
 <section class="band band--soil" id="contact">
   <div class="wrap">
     <div class="contact-grid">
       <div>
-        <h2 class="sec-title">문의 및 구매</h2>
+        <div class="eyebrow" style="color:#C8A96E">문의 및 구매</div>
+        <h2 class="sec-title" style="color:#F4F1E8">작물과 면적을 알려주세요</h2>
         <p class="sec-body">
           작물, 재배 면적, 필요 규격을 알려주시면 적합한 사양과 공급 조건을 안내해 드립니다.
           농협·작목반 단위 공급도 상담 가능합니다.
         </p>
         <div class="cta-row">
           <a class="btn btn-kakao" href="http://pf.kakao.com/_xexlJiM/chat" target="_blank" rel="noopener">카카오톡 상담하기</a>
-          <a class="btn btn-naver" href="https://smartstore.naver.com/egmc/products/6740015690" target="_blank" rel="noopener">스마트스토어 바로가기</a>
+          <a class="btn btn-ghost" href="https://smartstore.naver.com/egmc/products/6740015690" target="_blank" rel="noopener">스마트스토어 바로가기</a>
         </div>
       </div>
       <div>
@@ -580,7 +1036,7 @@ img{max-width:100%;height:auto;display:block}
   </div>
 </section>
 
-<!-- ══ [수정9] 사업자정보 ══ -->
+<!-- ══ [수정12] 사업자정보 ══ -->
 <footer class="foot">
   <div class="wrap">
     <div class="biz">
@@ -593,19 +1049,38 @@ img{max-width:100%;height:auto;display:block}
       대표번호 1670-2584 · gg@ggenius.kr
     </div>
     <div class="legal">
-      <span>© 2026 GreenGenius Co., Ltd.</span>
+      <span class="c">© 2026 GreenGenius Co., Ltd.</span>
       <a href="https://smartstore.naver.com/egmc/products/6740015690" target="_blank" rel="noopener">스마트스토어</a>
       <a href="http://pf.kakao.com/_xexlJiM/chat" target="_blank" rel="noopener">카카오톡 채널</a>
     </div>
   </div>
 </footer>
 
-<a class="float-kakao" href="http://pf.kakao.com/_xexlJiM/chat" target="_blank" rel="noopener">카카오톡 상담</a>
+<a class="float-kakao" href="http://pf.kakao.com/_xexlJiM/chat" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.9 3 2.8 6.3 2.8 10.3c0 2.6 1.7 4.9 4.3 6.2-.2.7-.7 2.6-.8 3-.1.5.2.5.4.4.2-.1 2.7-1.8 3.7-2.5.5.1 1.1.1 1.6.1 5.1 0 9.2-3.3 9.2-7.2S17.1 3 12 3z"/></svg>
+  카카오톡 상담
+</a>
 
+<!-- ══ 모바일 하단 고정 버튼 ══ -->
 <nav class="dock">
-  <a class="btn-kakao" href="http://pf.kakao.com/_xexlJiM/chat" target="_blank" rel="noopener">카톡상담</a>
-  <a class="btn-naver" href="https://smartstore.naver.com/egmc/products/6740015690" target="_blank" rel="noopener">구매하기</a>
-  <a style="background:#1F5A22;color:#fff" href="tel:16702584">전화걸기</a>
+  <a class="btn-kakao" href="http://pf.kakao.com/_xexlJiM/chat" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.9 3 2.8 6.3 2.8 10.3c0 2.6 1.7 4.9 4.3 6.2-.2.7-.7 2.6-.8 3-.1.5.2.5.4.4.2-.1 2.7-1.8 3.7-2.5.5.1 1.1.1 1.6.1 5.1 0 9.2-3.3 9.2-7.2S17.1 3 12 3z"/></svg>
+    카톡상담
+  </a>
+  <a class="btn-naver" href="https://smartstore.naver.com/egmc/products/6740015690" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="9" cy="20" r="1.4" fill="currentColor" stroke="none"/>
+      <circle cx="18" cy="20" r="1.4" fill="currentColor" stroke="none"/>
+      <path d="M2 3h2.6l2.4 12h11.4l2.2-8.5H6"/>
+    </svg>
+    구매하기
+  </a>
+  <a style="background:#1C5426;color:#fff" href="tel:16702584">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21.5 16.9v2.8a1.9 1.9 0 0 1-2.1 1.9 18.6 18.6 0 0 1-8.1-2.9 18.3 18.3 0 0 1-5.6-5.6A18.6 18.6 0 0 1 2.8 4.9 1.9 1.9 0 0 1 4.7 2.8h2.8a1.9 1.9 0 0 1 1.9 1.6c.1.9.3 1.8.7 2.7a1.9 1.9 0 0 1-.4 2L8.5 10.3a15 15 0 0 0 5.6 5.6l1.2-1.2a1.9 1.9 0 0 1 2-.4c.9.3 1.8.6 2.7.7a1.9 1.9 0 0 1 1.5 1.9z"/>
+    </svg>
+    전화상담
+  </a>
 </nav>
 
 <script type="application/ld+json">
@@ -615,6 +1090,7 @@ img{max-width:100%;height:auto;display:block}
   "name":"주식회사 그린지니어스",
   "alternateName":"GreenGenius",
   "url":"https://www.ggenius.kr",
+  "logo":"https://www.ggenius.kr/logo.png",
   "email":"gg@ggenius.kr",
   "telephone":"+82-1670-2584",
   "foundingDate":"2023-07-10",
@@ -632,30 +1108,52 @@ img{max-width:100%;height:auto;display:block}
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
+  "@type":"Product",
+  "name":"이지멀칭",
+  "alternateName":"EasyMulching",
+  "category":"농업용 생분해 멀칭필름",
+  "description":"수확 후 수거 없이 트랙터 로터리 작업으로 토양에 환원되는 농업용 생분해 멀칭필름. 감귤 부산물 유래 소재를 활용한 특허 제10-2951538호 적용.",
+  "brand":{"@type":"Brand","name":"이지멀칭"},
+  "manufacturer":{"@type":"Organization","name":"주식회사 그린지니어스"},
+  "url":"https://www.ggenius.kr",
+  "image":"https://www.ggenius.kr/og.jpg"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
   "@type":"FAQPage",
   "mainEntity":[
     {"@type":"Question","name":"수확이 끝나면 정말 걷어내지 않아도 되나요?",
      "acceptedAnswer":{"@type":"Answer","text":"수거하지 않고 트랙터 로터리 작업으로 토양에 섞어 넣으시면 됩니다. 별도의 폐비닐 수거·배출 작업이 필요하지 않습니다."}},
+    {"@type":"Question","name":"분해되는 데 얼마나 걸리나요?",
+     "acceptedAnswer":{"@type":"Answer","text":"토양 온도와 수분 조건에 따라 달라집니다. 작물의 재배 기간에 맞춰 규격을 선택하시면 되며, 재배하시는 작물과 지역을 알려주시면 적합한 사양을 안내해 드립니다."}},
+    {"@type":"Question","name":"재배 중에 미리 찢어지지는 않나요?",
+     "acceptedAnswer":{"@type":"Answer","text":"작물의 재배 기간에 맞춰 두께와 규격을 선택하시면 됩니다. 작물과 재배 지역을 알려주시면 적합한 사양을 안내해 드립니다."}},
     {"@type":"Question","name":"기존에 쓰던 피복기로 그대로 씌울 수 있나요?",
-     "acceptedAnswer":{"@type":"Answer","text":"기존 멀칭비닐과 같은 방식으로 피복합니다. 별도의 장비가 필요하지 않습니다."}},
+     "acceptedAnswer":{"@type":"Answer","text":"기존 멀칭비닐과 같은 방식으로 피복합니다. 별도의 장비가 필요하지 않습니다. 다만 작업 조건에 따라 장력 조절이 필요할 수 있어, 처음 사용하실 때는 문의해 주시면 안내해 드립니다."}},
     {"@type":"Question","name":"정부나 지자체 보조금을 받을 수 있나요?",
-     "acceptedAnswer":{"@type":"Answer","text":"친환경 농자재 지원사업은 지자체별로 대상 품목과 지원 비율이 다릅니다. 관할 시·군 농업기술센터 또는 지역 농협에 문의하시면 정확한 안내를 받으실 수 있습니다."}}
+     "acceptedAnswer":{"@type":"Answer","text":"친환경 농자재 지원사업은 지자체별로 대상 품목과 지원 비율이 다릅니다. 관할 시·군 농업기술센터 또는 지역 농협에 문의하시면 정확한 안내를 받으실 수 있습니다. 신청에 필요한 서류는 저희가 준비해 드립니다."}},
+    {"@type":"Question","name":"어떤 규격이 있고 가격은 얼마인가요?",
+     "acceptedAnswer":{"@type":"Answer","text":"규격과 가격은 스마트스토어에서 확인하실 수 있습니다. 대량 구매나 농협·작목반 단위 공급은 별도 조건이 적용되므로 카카오톡이나 전화로 문의해 주세요."}},
+    {"@type":"Question","name":"소량으로 먼저 써볼 수 있나요?",
+     "acceptedAnswer":{"@type":"Answer","text":"소량 구매는 스마트스토어에서 가능합니다. 시험 재배용 물량이 필요하시면 카카오톡으로 문의해 주세요."}}
   ]
 }
 </script>
 
 <script>
-/* 이미지 파일이 아직 없어도 화면이 깨지지 않게 처리합니다.
-   images 폴더에 파일을 올리면 자동으로 사진이 표시됩니다. */
+/* 이미지·영상 파일이 아직 없어도 화면이 깨지지 않게 처리합니다. */
 (function(){
-  var logo = document.querySelector('.brand-logo');
-  if (logo) {
-    logo.addEventListener('error', function(){
-      logo.hidden = true;
-      var t = document.querySelector('.brand-txt');
+  var prod = document.querySelector('.prod-logo');
+  if (prod) {
+    prod.addEventListener('error', function(){
+      prod.hidden = true;
+      var t = document.querySelector('.prod-txt');
       if (t) t.hidden = false;
     });
-    if (logo.complete && logo.naturalWidth === 0) logo.dispatchEvent(new Event('error'));
+    if (prod.complete && prod.naturalWidth === 0) prod.dispatchEvent(new Event('error'));
   }
   document.querySelectorAll('.shots img').forEach(function(im){
     function swap(){
@@ -667,14 +1165,6 @@ img{max-width:100%;height:auto;display:block}
     im.addEventListener('error', swap);
     if (im.complete && im.naturalWidth === 0) swap();
   });
-  var heroLogo = document.querySelector('.hero-logo');
-  if (heroLogo) {
-    heroLogo.addEventListener('error', function(){
-      var box = document.querySelector('.hero-mark');
-      if (box) box.hidden = true;
-    });
-    if (heroLogo.complete && heroLogo.naturalWidth === 0) heroLogo.dispatchEvent(new Event('error'));
-  }
   var vid = document.querySelector('.site-video');
   if (vid) {
     vid.addEventListener('error', function(){
